@@ -7,7 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header id="mainnav" class="navbar navbar-default mainnav">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 logo logo-img">
+          <p>where the logo goes</p>
+        </div> <!-- end logo -->
+        <nav class="col-xs-12 col-sm-4 mainnav">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'home', root_path %></li>
+            <% if @current_user.present? %>
+              <li><%= link_to "Edit profile", edit_user_path %></li>
+              <li><%= link_to "Logout #{ @current_user.email }", login_path, :method => :delete %></li>
+            <% else %>
+              <li><%= link_to 'Sign up', new_user_path %></li>
+              <li><%= link_to 'Login', login_path %></li>
+            <% end %>
 
+
+
+
+          </ul>
+        </nav>
+
+      </div> <!-- end row -->
+    </div>   <!-- end container -->
+
+  </header>
 <%= yield %>
 
 </body>
