@@ -1,0 +1,27 @@
+<header id="mainnav" class="navbar navbar-default mainnav">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 logo logo-img">
+        <p>where the logo goes</p>
+      </div> <!-- end logo -->
+      <nav class="col-xs-12 col-sm-4 mainnav">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'home', root_path %></li>
+          <% if @current_user.present? %>
+            <li><%= link_to "Edit profile", edit_user_path %></li>
+            <li><%= link_to "Logout #{ @current_user.email }", login_path, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to 'Sign up', new_user_path %></li>
+        </lu>
+      </nav><!-- end nav -->
+      <div class="col-xs-12 col-sm-5 login">
+        <%= form_tag '/login' do %>
+          <%=  text_field :email, placeholder: 'email', :required => true %>
+          <%= password_field_tag :password %>
+          <%= submit_tag 'login' %>
+        <% end %>
+      </div><!-- end login -->
+      <% end %>
+    </div> <!-- end row -->
+  </div>   <!-- end container -->
+</header>

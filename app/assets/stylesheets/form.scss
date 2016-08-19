@@ -1,0 +1,144 @@
+@import "variables";
+/* ========== Form ================ */
+.wrapper {
+    width: 90%;
+    max-width: 400px;
+    padding: 40px;
+    margin: 0 auto;
+    background-color: $white;
+    box-shadow: 0 0 3px $grey;
+}
+.container-form {
+    width: 100%;
+    // color: $white;
+    padding: 50px;
+    .form {
+        width: 100%;
+        margin: auto;
+        .input-group {
+            //position: relative; to put the label on top of the input
+            position: relative;
+            margin-bottom: 32px;
+            input[type="email"],
+            input[type="password"],
+            input[type="text"] {
+                font-family: $roboto;
+                font-size: $p16;
+                color: $primary;
+                width: 100%;
+                outline: none;
+                padding: 15px;
+                background-color: none;
+                border: none;
+                border-bottom: $border solid $secundary;
+                &:active,
+                &:focus {
+                    outline: none;
+                    border-bottom: $border solid $pink;
+                }
+                // &:error {
+                //     border-bottom: $border solid $red;
+                //     label {
+                //         color: $red;
+                //     }
+                // }
+            }
+            label {
+                color: $secundary;
+            }
+            .label {
+                position: absolute;
+                top: 16px;
+                left: 0;
+                font-size: $p16;
+                line-height: 16px;
+                margin-left: 16px;
+                transition: all 0.3s ease;
+            }
+            .active {
+                top: -12px;
+                font-size: 12px;
+                line-height: 12px;
+                color: $primary;
+            }
+        }
+        .radio {
+            input[type="radio"] {
+                display: none;
+                &:checked + label:before {
+                    display: none;
+                }
+                &:checked + label {
+                    padding: 5px 15px;
+                    background-color: $secundary;
+                    border-radius: $border;
+                    color: $white;
+                }
+            }
+        }
+        .checkbox {
+            label:before {
+                border-radius: 3px !important;
+            }
+            input[type="checkbox"] {
+                display: none;
+                &:checked + label:before {
+                    display: none;
+                }
+                &:checked + label {
+                    padding: 5px 15px;
+                    background-color: $secundary;
+                    border-radius: $border;
+                    color: $white;
+                }
+            }
+        }
+        .checkbox label,
+        .radio label {
+            display: inline-block;
+            cursor: pointer;
+            color: $secundary;
+            position: relative;
+            padding: 5px 15px 5px 51px;
+            font-size: 1em;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            &:hover {
+                background-color: rgba($secundary, 0.5);
+            }
+            &:before {
+                content: "";
+                display: inline-block;
+                width: 17px;
+                height: 17px;
+                position: absolute;
+                left: 15px;
+                border-radius: 50%;
+                background: none;
+                border: $border solid $secundary;
+            }
+            &:error {
+                color: $red;
+            }
+        }
+        .error {
+            label {
+                color: red;
+            }
+        }
+        input[type="submit"] {
+            background-color: $secundary;
+            border-radius: 1px;
+            border: $border solid $white;
+            color: $white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            font-family: $raleway;
+            transition: all 0.3s ease;
+            &:hover {
+                background-color: $pink;
+            }
+        }
+    }
+}
