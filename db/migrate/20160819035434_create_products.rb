@@ -5,8 +5,10 @@ class CreateProducts < ActiveRecord::Migration
       t.string :brand
       t.string :gender
       t.string :size
-      t.integer :category_id
+      t.string :colour
       t.text :description
+      t.integer :category_id
+      t.integer :user_id
 
       t.timestamps null: false
     end
