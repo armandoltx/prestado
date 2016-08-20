@@ -1,2 +1,24 @@
+<div class="product-show">
+  <div class="row">
+    <div class="col-xs-12 product-header">
+      <h1><%= "#{ @product.name }" %></h1>
+    </div><!-- end product-header -->
+    </div><!-- end row -->
+    <div class="col-xs-12 col-md-4 product-image">
+      <p>Claudinary image</p>
+      <p>Carousel</p>
+    </div><!-- end product-image -->
+    <div class="col-xs-12 col-md-4 product-profile">
+      <li>name: <%= @product.name %></li>
+      <li>brand: <%= @product.brand %></li>
+      <li>gender: <%= @product.gender %></li>
+      <li>size: <%= @product.size %></li>
+      <li>colour: <%= @product.colour %></li>
+      <li>description: <%= @product.description %></li>
+      <li>address: <%= @product.user.address %></li>
+    </div><!-- end product-profile -->
+
+</div><!-- end product-show -->
+
 <h1>Products#show</h1>
 <p>Find me in app/views/products/show.html.erb</p>

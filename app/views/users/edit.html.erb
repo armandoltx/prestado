@@ -1,2 +1,71 @@
-
-<p>where we edit the user</p>
+<div class="edit-user">
+  <div class="row">
+    <div class="col-xs-12 edit-header">
+      <h1><%= "Hello #{ @user.name }" %></h1>
+    </div> <!-- end 1st column header -->
+    <div class="col-xs-2 col-md-6">
+        <h2>Hello, this is 1st column</h2>
+        <%= image_tag @user.image ,class: "profile-img, img-responsive img-rounded" %>
+    </div>
+    <div class="col-xs-2 col-md-6 edit-form">
+      <h2>Good bye this is last column</h2>
+      <div class="container-form">
+        <div class="wrapper form">
+<%# ============  In case there is any error ============= %>
+          <% if @user.errors.any? %>
+            <ol>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            </ol>
+              <% end %>
+          <% end %>
+<%# =========================  FORM ======================== %>
+          <%= form_for @user do |f| %>
+            <div class="input-group">
+              <label class="label" for="name">Name:</label>
+              <%= f.text_field :name, :required => true %>
+              <label class="label" for="name">Name:</label>
+            </div>
+            <div class="input-group">
+              <%=  f.text_field :email, :required => true %>
+              <%= f.label :email, class: 'label' %>
+            </div>
+            <div class="input-group">
+              <%= f.text_field :address, :required => true %>
+              <%= f.label :address, class: 'label' %>
+            </div>
+            <div class="input-group">
+              <p>Cloudinary</p>
+              <label class="label" for="image">Image:</label>
+            </div>
+            <div class="input-group">
+              <%= f.password_field :password, :required =>true %>
+              <%= f.label :password, class: 'label' %>
+            </div>
+            <div class="input-group">
+              <%= f.password_field :password_confirmation, :required =>true %>
+              <%= f.label :password_confirmation, class: 'label' %>
+            </div>
+            <%= f.submit "Sign Up", :class => 'submit' %>
+          <% end %>
+        </div><!-- end wrapper form -->
+      </div><!-- end container-form -->
+    </div> <!-- end second column Form -->
+    <div class="col-xs-12 edit-history">
+      <h2>Your History</h2>
+    </div><!-- end 3rd line -->
+    <div class="col-xs-12 col-md-6 edit-products">
+      <h2>Your Products</h2>
+      <% @user.products.each do |product| %>
+        <li><a href="<%=  product_path product %>"><%= product.name %></a></li>
+      <% end %>
+    </div><!-- end 4th line bookings-->
+    <div class="col-xs-12 col-md-6 edit-bookings">
+      <h2>Your Bookings</h2>
+      <% @user.bookings.each do |booking| %>
+        <li><%= booking.product.name %></li>
+        <li><%= booking.id %></li>
+      <% end %>
+    </div><!-- end 4th line bookings-->
+  </div> <!-- end row -->
+</div><!-- end edit-user -->

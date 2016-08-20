@@ -1,11 +1,11 @@
 # --- USER SEED DATA --- #
 User.destroy_all
 
-u1 = User.create(:name => 'Armando', :password => 'chicken', :email => 'armando2a2r@gmail.com', :image => 'http://www.fillmurray.com/200/300');
-u2 = User.create(:name => 'Lucia', :password => 'chicken', :email => 'lucia@prestado.com');
-u3 = User.create(:name => 'Peter', :password => 'chicken', :email => 'peter@prestado.com');
-u4 = User.create(:name => 'Sally', :password => 'chicken', :email => 'sally@prestado.com');
-u5 = User.create(:name => 'John', :password => 'chicken', :email => 'john@prestado.com');
+u1 = User.create(:name => 'Armando', :password => 'chicken', :email => 'armando2a2r@gmail.com', :image => 'http://www.fillmurray.com/200/300', :address => '212 Bridge Rd, Glebe NSW 2037');
+u2 = User.create(:name => 'Lucia', :password => 'chicken', :email => 'lucia@prestado.com', :image => 'http://www.fillmurray.com/200/300');
+u3 = User.create(:name => 'Peter', :password => 'chicken', :email => 'peter@prestado.com', :image => 'http://www.fillmurray.com/200/300');
+u4 = User.create(:name => 'Sally', :password => 'chicken', :email => 'sally@prestado.com', :image => 'http://www.fillmurray.com/200/300');
+u5 = User.create(:name => 'John', :password => 'chicken', :email => 'john@prestado.com', :image => 'http://www.fillmurray.com/200/300');
 
 # --- PRODUCTS SEED DATA -- #
 Product.destroy_all
@@ -15,6 +15,11 @@ p2 = Product.create(:name => 'Skater Skirt', :brand => 'Boohoo', :gender => 'fem
 p3 = Product.create(:name => 'Smart Polo', :brand => 'Zara', :gender => 'female', :size => 'M', :colour => 'blue');
 p4 = Product.create(:name => 'Boots', :brand => 'Camper', :gender => 'female', :size => '8', :colour => 'brown');
 p5 = Product.create(:name => 'Casual Suit', :brand => 'Emidio Tucci', :gender => 'Male', :size => 'L', :colour => 'black');
+p6 = Product.create(:name => 'Jeans', :brand => 'Levis', :gender => 'male', :size => 'L', :colour => 'grey');
+p7 = Product.create(:name => 'Dress', :brand => 'H&M', :gender => 'female', :size => 'L', :colour => 'black');
+p8 = Product.create(:name => 'shoes', :brand => 'Nike', :gender => 'male', :size => '42', :colour => 'yellow');
+p9 = Product.create(:name => 'Casual Blazer', :brand => 'Hugo Boss', :gender => 'male', :size => 'L', :colour => 'dark-grey');
+p10 = Product.create(:name => 'Jeans', :brand => 'Lois', :gender => 'female', :size => 'L', :colour => 'red');
 
 # --- CATEGORY SEED DATA -- #
 Category.destroy_all
@@ -47,15 +52,13 @@ i6 = Image.create(:name => 'blue shirt', :url => 'http://www.fillmurray.com/200/
 
 
 
-
 #bookings belongs_to user
-u1.bookings << b1
+u1.bookings << b3
 u2.bookings << b2
 u3.bookings << b3
 u4.bookings << b4
 u5.bookings << b5
 u1.bookings << b6
-
 
 #bookings belongs_to product
 p1.bookings << b1
@@ -63,7 +66,7 @@ p2.bookings << b2
 p3.bookings << b3
 p4.bookings << b4
 p5.bookings << b5
-p1.bookings << b6
+p6.bookings << b6
 
 #products belongs_to category
 c1.products << p1
@@ -78,6 +81,14 @@ u2.products << p2
 u3.products << p3
 u4.products << p4
 u5.products << p5
+u3.products << p6
+u2.products << p7
+u1.products << p8
+u1.products << p9
+u1.products << p8
+u3.products << p9
+u3.products << p10
+
 
 #image belongs_to products
 p1.images << i1
