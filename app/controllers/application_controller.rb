@@ -6,6 +6,17 @@ class ApplicationController < ActionController::Base
   before_action :fetch_user
 
   private
+
+  def user_signed_in?
+    # flash[:notice] = 'Please login' unless @current_user
+    # redirect_to new_user_session_path unless @current_user
+    # Both above and bottom ways do the same thing
+    # It is to use in before_action in products_controller.rb,
+
+    flash[:notice] = 'Please login' unless @current_user
+    redirect_to new_user_session_path unless @current_user
+  end
+
     def fetch_user
       # Search for a user by their user id if we can find one in the session hash.
         if session[:user_id].present?

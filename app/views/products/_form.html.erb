@@ -1,0 +1,37 @@
+
+
+<%= form_for @product, :html => {:multipart => true} do |f|%> <%#  we need :html => {:multipart => true} do |f| beacuse we are adding images with cloudinary %>
+    <div class="col-xs-12 col-md-4 product-new-image">
+      <p>Claudinary image</p>
+      <%= file_field_tag("photos[]", :multiple => true ) %>
+      <div class="preview"></div>
+      <p>Carousel</p>
+    </div><!-- end product-image -->
+    <div class="col-xs-12 col-md-4 product-new-profile">
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.label :brand %>
+        <%= f.text_field :brand %>
+      </div>
+      <div>
+        <%= f.label :gender %>
+        <%= f.text_field :gender %>
+      </div>
+      <div>
+        <%= f.label :size %>
+        <%= f.text_field :size %>
+      </div>
+      <div>
+        <%= f.label :colour %>
+        <%= f.text_field :colour %>
+      </div>
+      <div>
+        <%= f.label :description %>
+        <%= text_area(:description, cols: 40, rows: 15, :placeholder => 'Description') %>
+      </div>
+    </div><!-- end product-profile -->
+    <%= f.submit 'submit', :class => 'submit' %>
+<% end %>

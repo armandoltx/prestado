@@ -21,4 +21,12 @@ class Product < ActiveRecord::Base
   has_many :bookings
   has_many :images
 
+def main_image
+  images.first
+end
+
+def carousel_images
+  images[1..-1]
+end
+
 end
