@@ -4,66 +4,61 @@
       <div class="col-xs-12 edit-header">
         <h1><%= "Hello #{ @user.name }" %></h1>
       </div> <!-- end 1st column header -->
-      <%= form_for @user, :html => {:multipart => true} do |f| %><%#  we need :html => {:multipart => true} do |f| beacuse we are adding images with cloudinary %>
-      <div class="col-xs-2 col-md-6">
-          <h2>Hello, this is 1st column</h2>
-          <%= cl_image_upload_tag(@user.image) %>
-          <%= image_tag @user.image ,class: "profile-img, img-responsive img-rounded" %>
-      </div>
-      <div class="col-xs-2 col-md-6 edit-form">
-        <h2>Good bye this is last column</h2>
-        <div class="container-form">
-          <div class="wrapper form">
-  <%# ============  In case there is any error ============= %>
-            <% if @user.errors.any? %>
-              <ol>
-                <% @user.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-              </ol>
-                <% end %>
+      <div class="col-xs-12 col-md-4  col-md-offset-1 container-form">
+        <div class="wrapper form">
+          <h2>Edit Profile</h2>
+<%# =========    In case there is any error %>
+        <% if @user.errors.any? %>
+          <ol>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
             <% end %>
-  <%# =========================  FORM ======================== %>
-              <div class="input-group">
-                <%= f.text_field :name, :required => true %>
-                <%# f.label :name, class: 'label' %>
-              </div>
-              <div class="input-group">
-                <%=  f.text_field :email, :required => true %>
-                <%# f.label :email, class: 'label' %>
-              </div>
-              <div class="input-group">
-                <%= f.text_field :address, :required => true %>
-                <%# f.label :address, class: 'label' %>
-              </div>
-              <div class="input-group">
-                <%= f.password_field :password, :required =>true %>
-                <%= f.label :password, class: 'label' %>
-              </div>
-              <div class="input-group">
-                <%= f.password_field :password_confirmation, :required =>true %>
-                <%= f.label :password_confirmation, class: 'label' %>
-              </div>
-              <%= f.submit "Sign Up", :class => 'submit' %>
-          </div><!-- end wrapper form -->
-        </div><!-- end container-form -->
-      </div> <!-- end second column Form -->
-      <% end %>
+          </ol>
+        <% end %>
+<%# =========================  FORM ======================== %>
+          <%= form_for @user, :html => {:multipart => true} do |f| %><%#  we need :html => {:multipart => true} do |f| beacuse we are adding images with cloudinary %>
+          <div class="input-group">
+            <%= f.text_field :name, :required => true %>
+          </div>
+          <div class="input-group">
+            <%=  f.text_field :email, :required => true %>
+          </div>
+          <div class="input-group">
+            <%= f.text_field :address, :required => true %>
+          </div>
+          <div class="input-group">
+            <%= f.password_field :password, :required =>true %>
+            <%= f.label :password, class: 'label' %>
+          </div>
+          <div class="input-group">
+            <%= f.password_field :password_confirmation, :required =>true %>
+            <%= f.label :password_confirmation, class: 'label' %>
+          </div>
+          <div class="input-group">
+            <%= cl_image_upload_tag(@user.image) %>
 
-      <div class="col-xs-12 edit-history">
-        <h2>Your History</h2>
-      </div><!-- end 3rd line -->
-      <div class="col-xs-12 col-md-6 edit-products">
-        <h2>Your Products</h2>
-        <% @user.products.each do |product| %>
-          <li><a href="<%=  product_path product %>"><%= product.name %></a></li>
-        <% end %>
-      </div><!-- end 4th line bookings-->
-      <div class="col-xs-12 col-md-6 edit-bookings">
-        <h2>Your Bookings</h2>
-        <% @user.bookings.each do |booking| %>
-          <li><%= booking.product.name %></li>
-        <% end %>
-      </div><!-- end 4th line bookings-->
-    </div> <!-- end row -->
+          </div>
+          <%= f.submit "Sign Up", :class => 'submit' %>
+          <% end %>
+        </div>
+      </div><!-- end container-form -->
+        <div class="col-xs-12 col-md-6 container-terms">
+          <h2>Your History</h2>
+          <div class="edit-products">
+            <h3>Your Products</h3>
+            <% @user.products.each do |product| %>
+              <li><a href="<%=  product_path product %>"><%= product.name %></a></li>
+            <% end %>
+          </div><!-- end 4th line bookings-->
+          <div class="edit-bookings">
+            <h3>Your Bookings</h3>
+            <% @user.bookings.each do |booking| %>
+              <li><%= booking.product.name %></li>
+            <% end %>
+          </div><!-- end 4th line bookings-->
+        </div> <!-- end row -->
+
+        </div><!-- end container-term -->
+
   </div><!-- end edit-user -->
 </div><!-- end container -->

@@ -8,8 +8,10 @@
         <div class="row">
           <div class="col-xs-12 col-sm-5 col-md-offset-2 login">
             <% if @current_user.present? %>
+            <ul>
               <li><%= link_to "Edit profile", edit_user_path(@current_user) %></li>
               <li><%= link_to "Logout #{ @current_user.name }", login_path, :method => :delete %></li>
+            </ul>
             <% else %>
               <%= form_tag '/login' do %>
                 <%=  text_field :email, nil, placeholder: 'email', :required => true %>
@@ -41,9 +43,9 @@
   </div>   <!-- end container -->
 </header>
 
-<div class="col-xs-12 tst">
-</div>
 
+
+<!--
 <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -78,6 +80,7 @@
               <li><a href="../navbar-static-top/">Static top</a></li>
               <li><a href="../navbar-fixed-top/">Fixed top</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
+          </div>
+        </div>
       </nav>
+     -->

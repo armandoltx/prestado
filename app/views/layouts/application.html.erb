@@ -14,12 +14,14 @@
 </head>
 <body>
 <%= render "layouts/header" %>
-<div class="">
+
   <% if flash[:message] %>
+  <div class="jumbotron">
     <p><%= flash[:message] %></p>
+  </div>
   <% end %>
   <%= yield %>
-</div>
+
 
 
 </body>

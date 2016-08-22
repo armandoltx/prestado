@@ -20,16 +20,12 @@ header.navbar {
     border: none;
     border-radius: 0;
     color: $fourth;
-    padding: 20px 0;
+    padding: 15px 0;
     nav {
-        margin-top: 68px;
+        margin-top: 45px;
         text-align: center;
         a {
-            color: $fourth !important;
-            font-size: $p20;
-            &:hover {
-                color: $third !important;
-            }
+            @include link-menu;
         }
     }
     .sign-form {
@@ -40,16 +36,17 @@ header.navbar {
     height: 30px;
     background-color: $third;
 }
+.edit-user {
+    h1 {
+        text-align: center;
+    }
+    .container-terms {
+        @include terms;
+    }
+}
 .sign-page {
     padding-top: 130px;
     .container-terms {
-        h2 {
-            font-family: $ubuntu;
-        }
-        padding: 40px;
-        margin: 0 auto;
-        background-color: $white;
-        box-shadow: 0 0 3px $grey;
-        font-family: $noto;
+        @include terms;
     }
 }

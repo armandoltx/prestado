@@ -1,0 +1,70 @@
+@import "variables";
+/* ========== PRODUCTS SHOW ================ */
+.product-show {
+    margin-top: 30px;
+    h1 {
+        text-align: center;
+    }
+    .product-show-profile {
+        padding-top: 40px;
+        a {
+            @include button;
+            padding: 15px 65px;
+        }
+    }
+    #carousel-custom {
+        margin: 20px auto;
+        width: 400px;
+        .carousel-indicators {
+            margin: 10px 0 0;
+            overflow: auto;
+            position: static;
+            text-align: left;
+            white-space: nowrap;
+            width: 100%;
+            li {
+                background-color: transparent;
+                -webkit-border-radius: 0;
+                border-radius: 0;
+                display: inline-block;
+                height: auto;
+                margin: 0 !important;
+                width: auto;
+                img {
+                    display: block;
+                    opacity: 0.5;
+                }
+                &:active img {
+                    opacity: 1;
+                }
+                &:hover img {
+                    opacity: 0.75;
+                }
+            }
+        }
+        .carousel-outer {
+            position: relative;
+        }
+    }
+    // .xdsoft_datetimepicker {
+    //     display: inline;
+    // }
+    .booking {
+        margin: 50px 0;
+    }
+    .product-show-booking-form {
+        text-align: center;
+        input[type="submit"] {
+            width: 55%;
+            @include button;
+        }
+    }
+    .product-show-booking-list {
+        h2 {
+            text-align: center;
+        }
+    }
+    .product-show-booking-map {
+        // margin-top: 25px;
+    }
+}

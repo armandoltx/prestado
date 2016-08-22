@@ -1,44 +1,111 @@
-<div class="container">
-  <div class="product-show">
-    <div class="row">
-      <div class="col-xs-12 product-show-header">
-        <h1><%= "#{ @product.name }" %> Products#show  HELLO</h1>
-      </div><!-- end product-header -->
-      <div class="col-xs-12 col-md-4 product-show-image">
+  <div class="container">
+    <div class="panel panel-default product-show">
+      <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-12 product-show-header">
+          <h1><%= "#{ @product.name }" %></h1>
+          <% if @product.can_edit?(@current_user) %>
+          <% end %>
+        </div><!-- end product-header -->
+        <div class="col-xs-12 col-md-4 product-show-image">
+          <div id='carousel-custom' class='carousel slide' data-ride='carousel'>
+              <div class='carousel-outer'>
+                  <!-- Wrapper for slides -->
+                  <div class='carousel-inner'>
+                      <div class='item active'>
+                        <%= image_tag @product.main_image.url if @product.main_image %>
+                      </div>
+                      <% @product.carousel_images.each do |image| %>
+                      <div class='item'>
+                        <%= image_tag image.url  %>
+                      </div>
+                      <% end if @product.carousel_images %>
 
-        <%= image_tag @product.main_image.url if @product.main_image %>
-        <% @product.carousel_images.each do |image| %>
-          <p><%= image_tag image.url  %></p>
-        <% end if @product.carousel_images %>
-        <p>Carousel</p>
-        <% if @product.can_edit?(@current_user) %>
-        <%= link_to 'edit', edit_product_path(@product) %>
-        <%= link_to 'delete', product_path(@product), :method => :delete, :data => { confirm: "are you sure?" } %>
-        <% end %>
-      </div><!-- end product-image -->
-      <div class="col-xs-12 col-md-4 product-show-profile">
-        <li>name: <%= @product.name %></li>
-        <li>brand: <%= @product.brand %></li>
-        <li>gender: <%= @product.gender %></li>
-        <li>size: <%= @product.size %></li>
-        <li>colour: <%= @product.colour %></li>
-        <li>description: <%= @product.description %></li>
-        <li>address: <%= @product.user.address %></li>
-      </div><!-- end product-profile -->
-      <div class="col-xs-12 col-md-4 product-show-booking-form">
-        <%= render 'products/booking_form' %>
-      </div><!-- end product-booking-form -->
-      <div class="col-xs-12 col-md-12 product-show-booking-list">
-        <% @product.bookings.each do |booking| %>
-          <p>start time: <%= booking.start_time.strftime ('%d of %B, %Y at %I:%M %p') %>|| end time: <%= booking.end_time.strftime ('%d of %B, %Y at %I:%M %p') %></p>
-        <% end if @product.bookings %>
-      </div><!-- end product-booking-list -->
+                  </div><!-- end carousel-inner -->
 
+                  <!-- Controls -->
+                  <a class='left carousel-control' href='#carousel-custom' data-slide='prev'>
+                      <span class='glyphicon glyphicon-chevron-left'></span>
+                  </a>
+                  <a class='right carousel-control' href='#carousel-custom' data-slide='next'>
+                      <span class='glyphicon glyphicon-chevron-right'></span>
+                  </a>
+              </div><!-- end carousel-outer -->
+          </div><!-- end carousel-custom -->
+        </div><!-- end product-image -->
+        <div class="col-xs-12 col-md-4 col-md-offset-2 product-show-profile">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                  <tr>
+                    <td><strong>Name:</strong></td>
+                    <td><%= @product.name %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Brand:</strong></td>
+                    <td><%= @product.brand %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Gender:</strong></td>
+                    <td><%= @product.gender %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Size:</strong></td>
+                    <td><%= @product.size %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Colour:</strong></td>
+                    <td><%= @product.colour %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Description:</strong></td>
+                    <td><%= @product.description %></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Address:</strong></td>
+                    <td><%= @product.user.address %></td>
+                  </tr>
+              </tbody>
+            </table><!-- end table -->
+          </div><!-- end table-responsive -->
+          <%= link_to 'edit', edit_product_path(@product) %>
+          <%= link_to 'delete', product_path(@product), :method => :delete, :data => { confirm: "are you sure?" } %>
+        </div><!-- end product-show-profile -->
+      </div><!-- end row -->
+      <div class="row booking">
+        <div class="col-xs-12 col-md-6 product-show-booking-form">
+          <h2>Choose the days you need it</h2>
+          <%= render 'products/booking_form' %>
+        </div><!-- end product-booking-form -->
 
-      <div id="map" class="map"></div>
+        <div class="col-xs-12 col-md-4 product-show-booking-list">
+          <h2>Bookings</h2>
+          <ol>
+            <% @product.bookings.each do |booking| %>
+              <li> Booking
+                <table class="table">
+                  <tbody>
+                      <tr>
+                        <td><strong>start time:</strong></td>
+                        <td><%= booking.start_time.strftime ('%d of %B, %Y at %I:%M %p') %></td>
+                      </tr>
+                      <tr>
+                        <td><strong>End time:</strong></td>
+                        <td><%= booking.end_time.strftime ('%d of %B, %Y at %I:%M %p') %></td>
+                      </tr>
+                  </tbody>
+                </table><!-- end table -->
+              </li>
+            <% end if @product.bookings %>
+          </ol>
+        </div><!-- end product-booking-list -->
+      </div><!-- end row -->
+        <div class="col-xs-12 product-show-booking-map">
+          <div id="map" class="map"></div>
+        </div><!-- end product-booking-map -->
 
-    </div><!-- end row -->
-  </div><!-- end product-show -->
+    </div><!-- end panel-body -->
+  </div><!-- end end panel panel-default product-show -->
 </div><!-- end container -->
 
 
@@ -49,7 +116,7 @@
 
 <%# this is for the map to get latitude and longitude %>
 <script type="text/javascript">
-//<%# those are variables we need to use in javascript %>
+//<%# those are variables we need to use in javascript we are using in map.js %>
 var myLatLng = {
     lat: <%= @product.user.latitude %>,
     lng: <%= @product.user.longitude %>

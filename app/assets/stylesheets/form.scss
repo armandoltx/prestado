@@ -150,9 +150,19 @@
 .login {
     text-align: center;
     background-color: $secondary;
-    padding: 20px 0;
+    padding: 10px 0;
     font-family: $ubuntu;
     color: $fourth;
+    ul {
+        list-style-type: none;
+        li {
+            display: inline-block;
+            a {
+                @include link-menu;
+                margin-left: 40px;
+            }
+        }
+    }
     input {
         border: none;
         // border-bottom: 1px solid $primary;
