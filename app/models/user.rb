@@ -22,5 +22,10 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :bookings
   has_many :products
+
   validates :email, :presence => true, :uniqueness => true
+
+  geocoded_by :address   #using geocoder to convert location into coordinates
+  after_validation :geocode          # auto-fetch coordinates
+
 end

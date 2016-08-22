@@ -4,7 +4,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor'
 gem 'cloudinary'
 gem "simple_calendar", "~> 2.0"
-
+gem 'geocoder'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

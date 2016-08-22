@@ -34,6 +34,30 @@
         <% end if @product.bookings %>
       </div><!-- end product-booking-list -->
 
+
+      <div id="map" class="map"></div>
+
     </div><!-- end row -->
   </div><!-- end product-show -->
 </div><!-- end container -->
+
+
+<%# ############################################################################################## %>
+<%# ############################## JAVASCRIPT for the APIS ####################################### %>
+<%# ############################################################################################## %>
+<%# ############################################################################################## %>
+
+<%# this is for the map to get latitude and longitude %>
+<script type="text/javascript">
+//<%# those are variables we need to use in javascript %>
+var myLatLng = {
+    lat: <%= @product.user.latitude %>,
+    lng: <%= @product.user.longitude %>
+};
+</script>
+
+
+
+<%# <!-- google map API key - AIzaSyDQhiJp0Ee3xKve1KYOLfVY0kF9lHF1xrc -->
+ %>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQhiJp0Ee3xKve1KYOLfVY0kF9lHF1xrc&callback=initMap" async defer></script>
