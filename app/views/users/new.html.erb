@@ -1,44 +1,58 @@
-<div class="sign-form">
-      <div class="container-form">
-        <div class="wrapper form">
-          <h1>Sign Up</h1>
-        <%# =========    In case there is any error %>
-        <% if @user.errors.any? %>
-          <ol>
-            <% @user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ol>
-        <% end %>
-          <%# ========= FORM %>
-          <%= form_for @user do |f| %>
-          <div class="input-group">
-            <label class="label" for="name">Name:</label>
-            <%= f.text_field :name, :required => true %>
-            <label class="label" for="name">Name:</label>
-          </div>
-          <div class="input-group">
-            <%=  f.text_field :email, :required => true %>
-            <%= f.label :email, class: 'label' %>
-          </div>
-          <div class="input-group">
-            <%= f.text_field :address, :required => true %>
-            <%= f.label :address, class: 'label' %>
-          </div>
-          <div class="input-group">
-            <p>Cloudinary</p>
-            <label class="label" for="image">Image:</label>
-          </div>
-          <div class="input-group">
-            <%= f.password_field :password, :required =>true %>
-            <%= f.label :password, class: 'label' %>
-          </div>
-          <div class="input-group">
-            <%= f.password_field :password_confirmation, :required =>true %>
-            <%= f.label :password_confirmation, class: 'label' %>
-          </div>
-          <%= f.submit "Sign Up", :class => 'submit' %>
+<div class="container">
+  <div class="sign-page">
+      <div class="row">
+        <div class="col-xs-12 col-md-4  col-md-offset-1 container-form">
+          <div class="wrapper form">
+            <h1>Sign Up</h1>
+          <%# =========    In case there is any error %>
+          <% if @user.errors.any? %>
+            <ol>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ol>
           <% end %>
-        </div>
-      </div>
-</div>
+            <%# ========= FORM %>
+            <%= form_for @user, :html => {:multipart => true} do |f| %><%#  we need :html => {:multipart => true} do |f| beacuse we are adding images with cloudinary %>
+            <div class="input-group">
+              <%= f.text_field :name, :required => true %>
+              <%= f.label :name, class: 'label' %>
+            </div>
+            <div class="input-group">
+              <%=  f.text_field :email, :required => true %>
+              <%= f.label :email, class: 'label' %>
+            </div>
+            <div class="input-group">
+              <%= f.text_field :address, :required => true %>
+              <%= f.label :address, class: 'label' %>
+            </div>
+            <div class="input-group">
+              <%= f.password_field :password, :required =>true %>
+              <%= f.label :password, class: 'label' %>
+            </div>
+            <div class="input-group">
+              <%= f.password_field :password_confirmation, :required =>true %>
+              <%= f.label :password_confirmation, class: 'label' %>
+            </div>
+            <div class="input-group">
+              <%= cl_image_upload_tag(@user.image) %>
+
+            </div>
+            <%= f.submit "Sign Up", :class => 'submit' %>
+            <% end %>
+          </div>
+        </div><!-- end container-form -->
+        <div class="col-xs-12 col-md-6 container-terms">
+          <h2>Terms and Conditions</h2>
+          <p class="term-cond">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos praesentium atque eos ipsa voluptates repellendus, rerum voluptatum unde labore, expedita veritatis dolores. Unde ea reprehenderit hic deleniti! Et, hic saepe.</p>
+          <p class="term-cond">Molestias voluptatibus non, veritatis corporis quos deserunt in, assumenda cupiditate voluptates neque laboriosam ratione voluptatem omnis reprehenderit aspernatur beatae ab fuga dicta facere sit qui voluptate dolor! Sit, alias, quae.</p>
+          <p class="term-cond">Ut perferendis rem tenetur quam, similique labore, eveniet quibusdam minima aliquam iure nobis accusamus doloremque natus, repellendus magni optio fugit libero pariatur itaque aperiam, porro saepe et. Velit, laborum, doloremque.</p>
+          <p class="term-cond">Velit cumque laudantium amet. Accusantium corporis harum cumque, maiores dolores, perspiciatis quibusdam iste illum velit blanditiis nesciunt voluptate ratione quisquam quidem, non, dolorem laudantium fuga similique fugiat ducimus eum odit!</p>
+          <p class="term-cond">Magnam quisquam culpa quidem ut sequi aut, corrupti pariatur eaque delectus repellat nostrum ducimus placeat impedit hic, odit maiores eligendi repellendus, sunt mollitia vitae. Est ullam voluptas maxime, in! Maxime?</p>
+          <p class="term-cond">Magnam quisquam culpa quidem ut sequi aut, corrupti pariatur eaque delectus repellat nostrum ducimus placeat impedit hic, odit maiores eligendi repellendus, sunt mollitia vitae. Est ullam voluptas maxime, in! Maxime?</p>
+          <p class="term-cond">Magnam quisquam culpa quidem ut sequi aut, corrupti pariatur eaque delectus repellat nostrum ducimus placeat impedit hic,easdfdfads odit maiores eligendi repellendus odit maiores eligendi repellendus, sunt mollitia vitae. Est ullam voluptas maxime, in! Maxime?</p>
+        </div><!-- end container-term -->
+
+      </div><!-- end row -->
+  </div><!-- end sign-page -->
+</div><!-- end container-->

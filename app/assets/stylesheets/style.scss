@@ -1,16 +1,55 @@
 @import "variables";
+/*========= GENERAL =======*/
+body {
+    p {
+        font-family: $noto;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $ubuntu;
+    }
+}
 /*========= HEADER =======*/
 header.navbar {
-    background-color: $pink !important;
+    background-color: $primary !important;
     margin: 0 !important;
     border: none;
     border-radius: 0;
-}
-.login {
-    text-align: center;
-    background-color: $primary;
+    color: $fourth;
     padding: 20px 0;
+    nav {
+        margin-top: 68px;
+        text-align: center;
+        a {
+            color: $fourth !important;
+            font-size: $p20;
+            &:hover {
+                color: $third !important;
+            }
+        }
+    }
+    .sign-form {
+        padding-top: 40px;
+    }
 }
-.sign-form {
-    padding-top: 40px;
+.tst {
+    height: 30px;
+    background-color: $third;
+}
+.sign-page {
+    padding-top: 130px;
+    .container-terms {
+        h2 {
+            font-family: $ubuntu;
+        }
+        padding: 40px;
+        margin: 0 auto;
+        background-color: $white;
+        box-shadow: 0 0 3px $grey;
+        font-family: $noto;
+    }
 }

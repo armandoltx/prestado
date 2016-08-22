@@ -1,11 +1,11 @@
 # --- USER SEED DATA --- #
 User.destroy_all
 
-u1 = User.create(:name => 'Armando', :password => 'chicken', :email => 'armando2a2r@gmail.com', :image => 'http://www.fillmurray.com/200/300', :address => '212 Bridge Rd, Glebe NSW 2037');
-u2 = User.create(:name => 'Lucia', :password => 'chicken', :email => 'lucia@prestado.com', :image => 'http://www.fillmurray.com/200/300');
-u3 = User.create(:name => 'Peter', :password => 'chicken', :email => 'peter@prestado.com', :image => 'http://www.fillmurray.com/200/300');
-u4 = User.create(:name => 'Sally', :password => 'chicken', :email => 'sally@prestado.com', :image => 'http://www.fillmurray.com/200/300');
-u5 = User.create(:name => 'John', :password => 'chicken', :email => 'john@prestado.com', :image => 'http://www.fillmurray.com/200/300');
+u1 = User.create(:name => 'Armando', :password => 'chicken', :email => 'armando2a2r@gmail.com', :address => '212 Bridge Rd, Glebe NSW 2037', :admin => true);
+u2 = User.create(:name => 'Lucia', :password => 'chicken', :email => 'lucia@prestado.com', :address => '56-58 York Street, Level M, Sydney NSW 2000');
+u3 = User.create(:name => 'Peter', :password => 'chicken', :email => 'peter@prestado.com', :address => '56/58 Beach Road, Bondi Beach NSW 2026');
+u4 = User.create(:name => 'Sally', :password => 'chicken', :email => 'sally@prestado.com', :address => '11 Patterson Street, Double Bay NSW 2028');
+u5 = User.create(:name => 'John', :password => 'chicken', :email => 'john@prestado.com', :address => '67 Frenchmans Rd, Randwick NSW 2031');
 
 # --- PRODUCTS SEED DATA -- #
 Product.destroy_all
@@ -43,12 +43,12 @@ b6 = Booking.create(:start_time => '12-10-2016-09-12 18:00:00', :end_time => '13
 # --- IMAGE SEED DATA -- #
 Image.destroy_all
 
-i1 = Image.create(:name => 'shirt', :url => 'http://www.fillmurray.com/200/300');
-i2 = Image.create(:name => 'skirt', :url => 'http://www.fillmurray.com/200/300');
-i3 = Image.create(:name => 'polo', :url => 'http://www.fillmurray.com/200/300');
-i4 = Image.create(:name => 'boots', :url => 'http://www.fillmurray.com/200/300');
-i5 = Image.create(:name => 'suit', :url => 'http://www.fillmurray.com/200/300');
-i6 = Image.create(:name => 'blue shirt', :url => 'http://www.fillmurray.com/200/300');
+i1 = Image.create(:name => 'shirt');
+i2 = Image.create(:name => 'skirt');
+i3 = Image.create(:name => 'polo');
+i4 = Image.create(:name => 'boots');
+i5 = Image.create(:name => 'suit');
+i6 = Image.create(:name => 'blue shirt');
 
 
 

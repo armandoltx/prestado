@@ -1,2 +1,57 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- ####################################################################### -->
+<!-- DIV 1: VIDEO -->
+<div class="homepage-hero-module">
+    <div class="title-container">
+        <div class="headline">
+            <h1 class="video-heading">Enjoy any Occasion</h1>
+            <h3 class="video-subheading">Borrow Clothes &amp; Enjoy Your Favourite Events</h3>
+        </div>
+    </div>
+ <div class="video-container">
+        <div class="filter"></div>
+        <%= video_tag (['clothing.mp4', 'clothing.webm']) %>
+        <video autoplay loop class="fillWidth">
+            <source src="/assets/clothing.mp4" type="video/mp4"/>Your browser does not support the video tag. I suggest you upgrade your browser.
+            <source src="/assets/clothing.webm" type="video/webm"/>Your browser does not support the video tag. I suggest you upgrade your browser.
+        </video>
+        <div class="poster hidden">
+            <%= image_tag 'clothing.jpg' %>
+        </div>
+    </div>
+</div>
+<!-- ####################################################################### -->
+<div class="home content-1">
+  <div class="colxs-12 col-md-">
+    <h2>Find clothes close to you for any occasion</h2>
+  </div>
+</div>
+<div class="home content-2">
+  <div class="colxs-12 col-md-6">
+
+  </div>
+</div>
+<div class="home content-3">
+  <div class="colxs-12 col-md-6">
+
+  </div>
+</div>
+<div class="home content-4">
+  <div class="colxs-12 col-md-6">
+
+  </div>
+</div>
+<div class="home content-5">
+  <div class="colxs-12 col-md-6">
+
+  </div>
+</div>
+<div class="home content-6">
+  <div class="colxs-12 col-md-6">
+
+  </div>
+</div>
+<div class="home content-7">
+  <div class="colxs-12 col-md-6">
+
+  </div>
+</div>

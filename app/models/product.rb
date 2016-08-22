@@ -21,12 +21,16 @@ class Product < ActiveRecord::Base
   has_many :bookings
   has_many :images
 
-def main_image
-  images.first
-end
+  def main_image
+    images.first
+  end
 
-def carousel_images
-  images[1..-1]
-end
+  def carousel_images
+    images[1..-1]
+  end
+
+  def can_edit?(user)
+      user_id == user.id || user.admin? # user_id is self.user_id (which is product.user_id)
+  end
 
 end

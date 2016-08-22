@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       session[:user_id] = @user.id
+
       redirect_to root_path
     else
       render :new
@@ -18,12 +19,17 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = @current_user
+    #@user = User.find(params[:id])  everybodu can edit
   end
 
   def update
     @user = @current_user
     if @user.update user_params
+      if (params[:file]).present?
+        req = Cloudinary::Uploader.upload(params[:file])
+        @user.update :image => req["url"]
+      end
       redirect_to edit_user_path(@user)
     else
       render:edit
@@ -32,7 +38,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :address, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :address, :password, :password_confirmation, :image)
   end
 
 
