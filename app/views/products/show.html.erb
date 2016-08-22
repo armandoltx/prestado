@@ -25,9 +25,14 @@
         <li>description: <%= @product.description %></li>
         <li>address: <%= @product.user.address %></li>
       </div><!-- end product-profile -->
-      <div class="col-xs-12 col-md-4 product-show-booking">
+      <div class="col-xs-12 col-md-4 product-show-booking-form">
         <%= render 'products/booking_form' %>
-      </div><!-- end product-booking -->
+      </div><!-- end product-booking-form -->
+      <div class="col-xs-12 col-md-12 product-show-booking-list">
+        <% @product.bookings.each do |booking| %>
+          <p>start time: <%= booking.start_time.strftime ('%d of %B, %Y at %I:%M %p') %>|| end time: <%= booking.end_time.strftime ('%d of %B, %Y at %I:%M %p') %></p>
+        <% end if @product.bookings %>
+      </div><!-- end product-booking-list -->
 
     </div><!-- end row -->
   </div><!-- end product-show -->

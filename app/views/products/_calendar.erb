@@ -1,0 +1,11 @@
+<div class="calendar">
+  <%= month_calendar events: @product.bookings, attribute: :start_time do |date, bookings| %>
+  <span class="day-date"><%= date.strftime '%d' %></span> <%# #to show only the day %>
+
+  <% @product.bookings.each do |booking| %>
+  <div id="event-calendar" class="event">
+      <%#link_to occasion.title, occasion %>
+  </div>
+  <% end %>
+  <% end %>
+</div>
