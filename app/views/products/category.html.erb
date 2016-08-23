@@ -1,0 +1,12 @@
+<% Category.all.each do |category| %>
+  <div>
+    <h2><%= category.name.capitalize  %></h2>
+    <ul>
+cZcZXczxcZcZXcZX
+    <% category.products.each do |product| %>
+      <li><%= link_to product.name, product %></li>
+    <% end %>
+
+  </ul>
+  </div>
+<% end %>

@@ -1,38 +1,49 @@
-<div class="index-female">
-  <h1>show all categories here Women</h1>
-  <div class="col-xs-12 col-md-8 index-content female-content">
-    <h2>Content area</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, odit ratione ipsum eos repudiandae voluptatum. Minima accusantium, commodi quae impedit aspernatur doloremque labore aliquam voluptatibus, exercitationem voluptate consequatur velit non!</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, odit ratione ipsum eos repudiandae voluptatum. Minima accusantium, commodi quae impedit aspernatur doloremque labore aliquam voluptatibus, exercitationem voluptate consequatur velit non!</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, odit ratione ipsum eos repudiandae voluptatum. Minima accusantium, commodi quae impedit aspernatur doloremque labore aliquam voluptatibus, exercitationem voluptate consequatur velit non!</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, odit ratione ipsum eos repudiandae voluptatum. Minima accusantium, commodi quae impedit aspernatur doloremque labore aliquam voluptatibus, exercitationem voluptate consequatur velit non!</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, odit ratione ipsum eos repudiandae voluptatum. Minima accusantium, commodi quae impedit aspernatur doloremque labore aliquam voluptatibus, exercitationem voluptate consequatur velit non!</p>
-  </div><!-- end index-content -->
+<div class="index-female ifm">
+  <div class="row">
+    <h1>show all categories here Women</h1>
+    <div class="col-xs-12 col-md-9 index-content female-content">
+      <div class="latest">
+        <div class="row">
+          <div class="col-xs-12">
 
-  <div class="col-xs-12 col-md-4 index-sidebar female-sidebar">
-    <%= render 'search_product_form' %>
-    <h2>Side Bar area</h2>
-    <% Category.all.each do |category| %>
-      <div>
-        <h2><%= category.name.capitalize  %></h2>
-        <ul>
+          </div>
+          <% @products.each do |product| %>
+            <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
+              <article class="col-md-3 wrap">
+                <%# image_tag( 'woman.jpg', :class => 'woman-img') %>
+                  <img src='<%= product.images %>' alt="" class="occasion-image" />
+                  <h3><%= product.name %></h3>
+                  <%# cl_image_tag(product.images.first.url) %>
+              </article>
+            </a>
+          <% end %>
+        </div><!-- end row -->
+      </div><!-- end container -->
+    </div><!-- end index-content -->
 
-        <% category.products.where(:gender => 'female').each do |product| %>
-          <li><%= link_to product.name, product %></li>
-        <% end %>
+    <div class="col-xs-12 col-md-3 index-sidebar female-sidebar">
+      <%= render 'search_product_form' %>
+      <% Category.all.each do |category| %>
+        <div>
+          <h2><%= category.name.capitalize  %></h2>
+          <ul>
 
-      </ul>
-      </div>
-    <% end %>
-    <h1><%= @page_title %></h1>
-    <% @products.each do |product| %>
-      <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
-        <h3><%= product.name %></h3>
-      </a>
-    <% end %>
-  </div><!-- end index-sidebar -->
+          <% category.products.where(:gender => 'female').each do |product| %>
+            <li><%= link_to product.name, product %></li>
+          <% end %>
+
+        </ul>
+        </div>
+      <% end %>
+      <h1><%= @page_title %></h1>
+      <% @products.each do |product| %>
+        <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
+          <h3><%= product.name %></h3>
+        </a>
+      <% end %>
+    </div><!-- end index-sidebar -->
 
 
 
-
+  </div><!-- end row -->
 </div><!-- end index-female -->

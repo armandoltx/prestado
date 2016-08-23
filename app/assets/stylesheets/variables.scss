@@ -43,6 +43,7 @@ $h2: 35px;
     }
 }
 @mixin button {
+    text-decoration: none;
     background-color: $secondary;
     border-radius: 1px;
     border: $border solid $white;

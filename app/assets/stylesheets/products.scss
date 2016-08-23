@@ -1,4 +1,105 @@
 @import "variables";
+/* ========== PRODUCTS INDEX ================ */
+.index {
+    background-color: $grey;
+    .in-index {
+        padding: 20px 0 30px;
+    }
+    .female-index {
+        max-width: 629.5px;
+        max-height: 600px;
+        background-color: $grey;
+        text-align: center;
+        .woman {
+            position: relative;
+        }
+    }
+    .title {
+        position: absolute;
+        top: 400px;
+        left: 140px;
+        a {
+            @include button;
+            // color: #337ab7;
+            // text-decoration: none;
+            // font-size: 38px;
+            // background-color: yellow;
+            padding: 10px 150px;
+            border: none;
+        }
+    }
+    .male-index {
+        max-width: 629.5px;
+        max-height: 600px;
+        text-align: center;
+        background-color: $grey;
+    }
+}
+.latest {
+    h1 {
+        text-align: center;
+    }
+    .wrap {
+        max-height: 30vh;
+        max-width: 25vw; //Change to 25vw for 3 column display
+        position: relative;
+        margin: 10px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        overflow: hidden;
+        top: 5vh;
+        left: 5vw;
+        right: 5vw;
+        text-align: center;
+        padding-right: 0;
+        padding-left: 0;
+        &:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+        h3 {
+            background-color: $secondary;
+            color: #FFFFFF;
+            padding: 1vh 0;
+        }
+    }
+}
+/* ========== PRODUCTS INDEX-FEMALE INDEX-MALE================ */
+.ifm {
+    h1 {
+        text-align: center;
+        padding: 20px 0;
+    }
+    .index-content {}
+    .index-sidebar {
+        input[type="text"] {
+            font-family: $ubuntu;
+            font-size: $p16;
+            color: $primary;
+            width: 180px;
+            outline: none;
+            padding: 15px;
+            background-color: none;
+            border: none;
+            border-bottom: $border solid $primary;
+            &:active,
+            &:focus {
+                outline: none;
+                border-bottom: $border solid $third;
+            }
+        }
+        input[type="submit"] {
+            background-color: $secondary;
+            border-radius: 1px;
+            border: $border solid $white;
+            color: $white;
+            cursor: pointer;
+            padding: 10px 15px;
+            &:hover {
+                background-color: $third;
+            }
+        }
+    }
+}
 /* ========== PRODUCTS SHOW ================ */
 .product-show {
     margin-top: 30px;

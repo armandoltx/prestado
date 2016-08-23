@@ -1,3 +1,79 @@
+<div class="index-male ifm">
+  <div class="row">
+    <h1>show all categories here Men</h1>
+    <div class="col-xs-12 col-md-9 index-content male-content ">
+      <div class="latest">
+        <div class="row">
+          <div class="col-xs-12">
+
+          </div>
+          <% @products.each do |product| %>
+            <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
+              <article class="col-md-3 wrap">
+                <%# image_tag( 'woman.jpg', :class => 'woman-img') %>
+                  <img src='<%= product.images %>' alt="" class="occasion-image" />
+                  <h3><%= product.name %></h3>
+                  <%# cl_image_tag(product.images.first.url) %>
+              </article>
+            </a>
+          <% end %>
+        </div><!-- end row -->
+      </div><!-- end container -->
+    </div><!-- end index-content -->
+
+    <div class="col-xs-12 col-md-3 index-sidebar male-sidebar">
+      <%= render 'search_product_form' %>
+      <% Category.all.each do |category| %>
+        <div>
+          <h2><%= category.name.capitalize  %></h2>
+          <ul>
+
+          <% category.products.where(:gender => 'male').each do |product| %>
+            <li><%= link_to product.name, product %></li>
+          <% end %>
+
+        </ul>
+        </div>
+      <% end %>
+      <h1><%= @page_title %></h1>
+      <% @products.each do |product| %>
+        <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
+          <h3><%= product.name %></h3>
+        </a>
+      <% end %>
+    </div><!-- end index-sidebar -->
+
+
+
+  </div><!-- end row -->
+</div><!-- end index-male -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================================================================
 <div class="index-male">
   <div class="col-xs-12 col-md-8 index-content male-content"></div><!-- end index-content -->
 
