@@ -13,11 +13,11 @@
                   <!-- Wrapper for slides -->
                   <div class='carousel-inner'>
                       <div class='item active'>
-                        <%= cl_image_tag(@product.main_image.url, :width => 300, :height => 350, :class => 'img-responsive') if @product.main_image %>
+                        <%= cl_image_upload_tag(@product.main_image.url, :width => 300, :height => 350, :class => 'img-responsive') if @product.main_image %>
                       </div>
                       <% @product.carousel_images.each do |image| %>
                       <div class='item'>
-                        <%= cl_image_tag(image.url, :width => 300, :height => 350, :class => 'img-responsive')  %>
+                        <%= cl_image_upload_tag(image.url, :width => 300, :height => 350, :class => 'img-responsive')  %>
                       </div>
                       <% end if @product.carousel_images %>
 
