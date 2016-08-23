@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   get '/products_for/:gender' => 'products#index_gender'
 
+  get 'search' => 'products#search', as: 'search'
+  get 'search_results' => 'products#search_results', as: 'search_results'
+
 
 
 end

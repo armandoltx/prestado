@@ -78,7 +78,7 @@
         <div class="col-xs-12 col-md-5 product-show-booking-list">
           <h2>Bookings</h2>
           <ol>
-            <% @product.bookings.each do |booking| %>
+            <% @product.bookings.reverse.each do |booking| %>
               <li> Booking
                 <table class="table">
                   <tbody>

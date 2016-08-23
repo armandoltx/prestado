@@ -33,4 +33,9 @@ class Product < ActiveRecord::Base
       user_id == user.id || user.admin? # user_id is self.user_id (which is product.user_id)
   end
 
+  def self.keyword_search(keywords)   #make keyword_search a class level method, we try to make the funciton in controller slim
+    keywords = "%" + keywords+ "%"
+    Product.where("name ILIKE ? OR brand ILIKE ? OR gender ILIKE ? OR size ILIKE ? OR colour ILIKE ? OR description ILIKE ?", keywords, keywords, keywords, keywords, keywords, keywords)  # Acitive Record saves us from writing DB queries in SQL manualy/direclty. here LIKE Is a SQL operator, it is not case sensitive,   % % is like * in reqgular expresison ( anything ) %% is called wildcard  ? is for protecting from SQL injection
+  end
+
 end

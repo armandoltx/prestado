@@ -1,0 +1,25 @@
+<div class="container search-results-wrapper">
+  <div class="row">
+    <div class="col-md-8 results-content">
+      <h2>Search Results for '<%= @search_term %>'</h2>
+
+      <% if @found_products.nil? %>
+          <p>No result found</p>
+      <% end %>
+
+      <% @found_products.each do |product| %>
+            <h2><%= product.name %></h2>
+      <% end %>
+
+    </div><!-- end results-content -->
+    <div class="col-md-4 results-sidebar">
+      <h2>Side Bar area</h2>
+      <%= render 'search_product_form' %>
+      <% Category.all.each do |category| %>
+        <div>
+          <h2><%= category.name.capitalize  %></h2>
+        </div>
+      <% end %>
+    </div><!-- end results-sidebar -->
+  </div><!-- end row -->
+</div><!-- end container -->

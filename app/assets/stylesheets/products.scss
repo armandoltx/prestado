@@ -42,6 +42,14 @@
                 }
             }
         }
+        .carousel-inner {
+            .item {
+                text-align: center;
+                img {
+                    display: inline-block;
+                }
+            }
+        }
         .carousel-outer {
             position: relative;
         }
@@ -60,6 +68,8 @@
         }
     }
     .product-show-booking-list {
+        max-height: 563px;
+        overflow: scroll;
         h2 {
             text-align: center;
         }

@@ -1,0 +1,10 @@
+<div class="search-product-form">
+  <h3>Search For any product</h3>
+    <div class="search-wrap">
+        <!-- search by keywords -->
+        <%= form_tag search_results_path, method: 'get' do %>
+        <%= text_field_tag :search_keywords, nil, placeholder: "enter keyword", :class => 'search-input' %>
+        <%= submit_tag "search", :class => 'search-button' %>
+        <% end %>
+    </div>
+</div>

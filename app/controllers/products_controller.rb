@@ -2,20 +2,21 @@ class ProductsController < ApplicationController
 
 before_action :user_signed_in?, :except => [:index, :show]
 # user_signed_in? is defined in the application_controller.rb file to be able to use everywhere
+
   def index
-    @products = Product.all
-    @male = Product.where :gender => 'male';
-    @female = Product.where :gender => 'female';
+    @products = Product.all.order("created_at DESC")
+    @male = Product.where(:gender => 'male').order("created_at DESC")
+    @female = Product.where(:gender => 'female').order("created_at DESC")
   end
 
   def index_gender
     # raise 'hell'
     if params['gender'] == 'men'
-      @products = Product.where :gender => 'male';
+      @products = Product.where(:gender => 'male').order("created_at DESC")
       @page_title = 'Men'
       render :index_gender_male #to render a view, so the view need to have the name
     elsif  params['gender'] == 'women'
-      @products = Product.where :gender => 'female';
+      @products = Product.where(:gender => 'female').order("created_at DESC")
       @page_title = 'Women'
       render :index_gender_female #to render a view, so the view need to have the name
     else
@@ -26,8 +27,8 @@ before_action :user_signed_in?, :except => [:index, :show]
 
   def show
     @product = Product.find(params[:id])
-    @male = Product.where :gender => 'male';
-    @female = Product.where :gender => 'female';
+    @male = Product.where(:gender => 'male').order("created_at DESC")
+    @female = Product.where(:gender => 'female').order("created_at DESC")
   end
 
   def new
@@ -86,6 +87,19 @@ before_action :user_signed_in?, :except => [:index, :show]
       flash[:notice] = 'Admin Access Only'
       redirect_to products_path
     end
+  end
+
+  def search
+  end
+
+  def search_results
+    @products = Product.all.order('created_at DESC')
+
+    if params.has_key?('search_keywords')
+      @found_products = Product.keyword_search(params[:search_keywords])
+      @search_term = params[:search_keywords] #create this varible to store the name to display for search, check search_results.html.erb
+    end
+
   end
 
   private

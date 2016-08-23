@@ -1,21 +1,24 @@
 <div class="index-male">
-  show all categories here Male
-  <% Category.all.each do |category| %>
-    <div>
-      <h2><%= category.name.capitalize  %></h2>
-      <ul>
+  <div class="col-xs-12 col-md-8 index-content male-content"></div><!-- end index-content -->
 
-      <% category.products.where(:gender => 'male').each do |product| %>
-        <li><%= link_to product.name, product %></li>
-      <% end %>
+  <div class="col-xs-12 col-md-4 index-sidebar male-sidebar"></div><!-- end index-sidebar -->
+    show all categories here Male
+    <% Category.all.each do |category| %>
+      <div>
+        <h2><%= category.name.capitalize  %></h2>
+        <ul>
 
-    </ul>
-    </div>
-  <% end %>
-  <h1><%= @page_title %></h1>
-  <% @products.each do |product| %> <%# @products come from the action index_gender  %>
-    <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
-      <h3><%= product.name %></h3>
-    </a>
-  <% end %>
+        <% category.products.where(:gender => 'male').each do |product| %>
+          <li><%= link_to product.name, product %></li>
+        <% end %>
+
+      </ul>
+      </div>
+    <% end %>
+    <h1><%= @page_title %></h1>
+    <% @products.each do |product| %> <%# @products come from the action index_gender  %>
+      <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
+        <h3><%= product.name %></h3>
+      </a>
+    <% end %>
 </div><!-- end index-gender -->
