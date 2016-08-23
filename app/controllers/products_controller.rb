@@ -13,9 +13,11 @@ before_action :user_signed_in?, :except => [:index, :show]
     if params['gender'] == 'men'
       @products = Product.where :gender => 'male';
       @page_title = 'Men'
+      render :index_gender_male #to render a view, so the view need to have the name
     elsif  params['gender'] == 'women'
       @products = Product.where :gender => 'female';
       @page_title = 'Women'
+      render :index_gender_female #to render a view, so the view need to have the name
     else
       # handle garbage paths
       redirect_to products_path

@@ -1,0 +1,21 @@
+<div class="index-female">
+  show all categories here Women
+  <% Category.all.each do |category| %>
+    <div>
+      <h2><%= category.name.capitalize  %></h2>
+      <ul>
+
+      <% category.products.where(:gender => 'female').each do |product| %>
+        <li><%= link_to product.name, product %></li>
+      <% end %>
+
+    </ul>
+    </div>
+  <% end %>
+  <h1><%= @page_title %></h1>
+  <% @products.each do |product| %>
+    <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
+      <h3><%= product.name %></h3>
+    </a>
+  <% end %>
+</div><!-- end index-gender -->

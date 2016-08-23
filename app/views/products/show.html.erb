@@ -12,11 +12,8 @@
               <div class='carousel-outer'>
                   <!-- Wrapper for slides -->
                   <div class='carousel-inner'>
-                      <div class='item active'>
-                        <%= cl_image_tag(@product.main_image.url, :width => 300, :height => 350, :class => 'img-responsive') if @product.main_image %>
-                      </div>
-                      <% @product.carousel_images.each do |image| %>
-                      <div class='item'>
+                      <% @product.carousel_images.each_with_index do |image, i| %>
+                      <div class='item <%= 'active' if i == 0%>'>
                         <%= cl_image_tag(image.url, :width => 300, :height => 350, :class => 'img-responsive')  %>
                       </div>
                       <% end if @product.carousel_images %>
