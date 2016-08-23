@@ -10,16 +10,27 @@ u5 = User.create(:name => 'John', :password => 'chicken', :email => 'john@presta
 # --- PRODUCTS SEED DATA -- #
 Product.destroy_all
 
-p1 = Product.create(:name => 'White Shirt', :brand => 'Polo', :gender => 'male', :size => 'L', :colour => 'white');
-p2 = Product.create(:name => 'Skater Skirt', :brand => 'Boohoo', :gender => 'female', :size => '12', :colour => 'red');
-p3 = Product.create(:name => 'Smart Polo', :brand => 'Zara', :gender => 'female', :size => 'M', :colour => 'blue');
-p4 = Product.create(:name => 'Boots', :brand => 'Camper', :gender => 'female', :size => '8', :colour => 'brown');
-p5 = Product.create(:name => 'Casual Suit', :brand => 'Emidio Tucci', :gender => 'Male', :size => 'L', :colour => 'black');
-p6 = Product.create(:name => 'Jeans', :brand => 'Levis', :gender => 'male', :size => 'L', :colour => 'grey');
-p7 = Product.create(:name => 'Dress', :brand => 'H&M', :gender => 'female', :size => 'L', :colour => 'black');
-p8 = Product.create(:name => 'shoes', :brand => 'Nike', :gender => 'male', :size => '42', :colour => 'yellow');
-p9 = Product.create(:name => 'Casual Blazer', :brand => 'Hugo Boss', :gender => 'male', :size => 'L', :colour => 'dark-grey');
-p10 = Product.create(:name => 'Jeans', :brand => 'Lois', :gender => 'female', :size => 'L', :colour => 'red');
+p1 = Product.create(:name => 'White Shirt', :brand => 'Polo', :gender => 'male', :size => 'L', :colour => 'white', :description => 'The Stretch Slim Shirt from Burton Menswear is a classic white dress shirt with a functional, comfortable twist. The button-through shirt is made of a cotton-rich stretch fabric and features dark grey buttons for contrast detail.');
+p2 = Product.create(:name => 'Skater Skirt', :brand => 'Boohoo', :gender => 'female', :size => '12', :colour => 'red', :description => 'Update your 24-hour wardrobe with the Atmos&Here Solitaire Wrap Mini Skirt. Made from white crepe, the piece has a flattering A-line silhouette and a wrap front.');
+p3 = Product.create(:name => 'Smart Polo', :brand => 'Zara', :gender => 'female', :size => 'M', :colour => 'blue', :description => 'Be casual, be cool in the Spark Polo Shirt from Jack & Jones - cut from a premium cotton fabric in a classic polo design. Featuring a contrast grey marle section to break up the shirt.');
+p4 = Product.create(:name => 'Boots', :brand => 'Camper', :gender => 'female', :size => '8', :colour => 'brown', :description => "Tap into the season's retro redux with the soft microsuede Therapy Hanover boots. This thigh-high pair looks best with mini hemlines.
+- Calf Circumference: 40cm
+- Soft, grey microsuede upper
+- Round toe
+- Pull-on design
+- 8cm heel");
+p5 = Product.create(:name => 'Casual Suit', :brand => 'Emidio Tucci', :gender => 'Male', :size => 'L', :colour => 'black', :description => "Tap into the season's retro redux with the soft microsuede Therapy Hanover boots. This thigh-high pair looks best with mini hemlines.
+
+- Calf Circumference: 40cm
+- Soft, grey microsuede upper
+- Round toe
+- Pull-on design
+- 8cm heel");
+p6 = Product.create(:name => 'Jeans', :brand => 'Levis', :gender => 'male', :size => 'L', :colour => 'grey', :description => 'The Levis Slim Jeans are a denim classic. The faded wash and love-worn look make them an ideal everyday pair.');
+p7 = Product.create(:name => 'Dress', :brand => 'H&M', :gender => 'female', :size => 'L', :colour => 'black', :description => 'The Keep On Swinging Wrap Dress from Lioness is crafted from a silky-smooth and lightweight fabric in a flattering wrap design. Just add heels for a show-stopping nighttime look.');
+p8 = Product.create(:name => 'shoes', :brand => 'Nike', :gender => 'male', :size => '42', :colour => 'yellow', :description => 'Designed for the dapper gentleman, the Double Oak Mills Samuel Lace Shoes are made from smooth leather with a polished finish. The snipped-toe profile is topped with distinct stitching for a handsome touch.');
+p9 = Product.create(:name => 'Casual Blazer', :brand => 'Hugo Boss', :gender => 'male', :size => 'L', :colour => 'dark-grey', :description => 'Ace smart-casual style in the Sks1 Char Brkn Puppy Jacket from Burton Menswear. The crosshatch pattern adds tone and class to the standard blazer.');
+p10 = Product.create(:name => 'Jeans', :brand => 'Lois', :gender => 'female', :size => 'L', :colour => 'red', :description => 'Jeans are a denim classic. The faded wash and love-worn look make them an ideal everyday pair.');
 
 # --- CATEGORY SEED DATA -- #
 Category.destroy_all
@@ -28,7 +39,16 @@ c1 = Category.create(:name => 'shirt');
 c2 = Category.create(:name => 'skirt');
 c3 = Category.create(:name => 'polo');
 c4 = Category.create(:name => 'shoes');
-c5 = Category.create(:name => 'suit');
+c5 = Category.create(:name => 'suit and blazer');
+c6 = Category.create(:name => 'jumper and cardigan');
+c7 = Category.create(:name => 'coats and jackets');
+c8 = Category.create(:name => 'dress');
+c9 = Category.create(:name => 'top');
+
+
+
+
+
 
 # --- CATEGORY SEED DATA -- #
 Booking.destroy_all

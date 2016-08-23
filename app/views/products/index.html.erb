@@ -1,12 +1,37 @@
-<div class="container">
-  <h1>Products#index</h1>
-  <% @products.each do |product| %>
-    <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
-      <h3><%= product.name %></h3>
-      <p><%= product.description %></p>
-    </a>
+<div class="col-xs-12 col-md-6 female-index">
+  <h1><%= link_to 'Women', '/products_for/women' %></h1>
+</div><!-- end female-index -->
+
+<div class="col-xs-12 col-md-6 male-index">
+  <h1><%= link_to 'Men', '/products_for/men' %></h1>
+</div><!-- end male-index -->
+
+<!-- end female-index -->
+
+  <div class="container">
+    <h1>Products#index</h1>
+    <% @male.each do |m| %>
+    <p><%= m.name %></p>
+    <% end %>
+    <% @products.each do |product| %>
+      <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
+        <h3><%= product.name %></h3>
+      </a>
 
 
 
+    <% end %>
+  </div><!-- end container -->
+
+  <% Category.all.each do |category| %>
+    <div>
+      <h2><%= category.name.capitalize  %></h2>
+      <ul>
+
+      <% category.products.each do |product| %>
+        <li><%= link_to product.name, product %></li>
+      <% end %>
+
+    </ul>
+    </div>
   <% end %>
-</div><!-- end container -->

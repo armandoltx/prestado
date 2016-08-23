@@ -13,11 +13,11 @@
                   <!-- Wrapper for slides -->
                   <div class='carousel-inner'>
                       <div class='item active'>
-                        <%= image_tag @product.main_image.url if @product.main_image %>
+                        <%= cl_image_tag(@product.main_image.url, :width => 300, :height => 350, :class => 'img-responsive') if @product.main_image %>
                       </div>
                       <% @product.carousel_images.each do |image| %>
                       <div class='item'>
-                        <%= image_tag image.url  %>
+                        <%= cl_image_tag(image.url, :width => 300, :height => 350, :class => 'img-responsive')  %>
                       </div>
                       <% end if @product.carousel_images %>
 
@@ -78,7 +78,7 @@
           <%= render 'products/booking_form' %>
         </div><!-- end product-booking-form -->
 
-        <div class="col-xs-12 col-md-4 product-show-booking-list">
+        <div class="col-xs-12 col-md-5 product-show-booking-list">
           <h2>Bookings</h2>
           <ol>
             <% @product.bookings.each do |booking| %>

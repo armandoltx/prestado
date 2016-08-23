@@ -16,9 +16,10 @@
 <%= render "layouts/header" %>
 
   <% if flash[:message] %>
-  <div class="jumbotron">
-    <p><%= flash[:message] %></p>
-  </div>
+    <% flash.each do |name, message| %>
+    <%= content_tag(:div, message, class: "alert alert-info") %>
+    <% end %>
+
   <% end %>
   <%= yield %>
 

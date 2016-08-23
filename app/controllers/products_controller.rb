@@ -4,10 +4,28 @@ before_action :user_signed_in?, :except => [:index, :show]
 # user_signed_in? is defined in the application_controller.rb file to be able to use everywhere
   def index
     @products = Product.all
+    @male = Product.where :gender => 'male';
+    @female = Product.where :gender => 'female';
+  end
+
+  def index_gender
+    # raise 'hell'
+    if params['gender'] == 'men'
+      @products = Product.where :gender => 'male';
+      @page_title = 'Men'
+    elsif  params['gender'] == 'women'
+      @products = Product.where :gender => 'female';
+      @page_title = 'Women'
+    else
+      # handle garbage paths
+      redirect_to products_path
+    end
   end
 
   def show
     @product = Product.find(params[:id])
+    @male = Product.where :gender => 'male';
+    @female = Product.where :gender => 'female';
   end
 
   def new
@@ -25,9 +43,10 @@ before_action :user_signed_in?, :except => [:index, :show]
         img = Image.create(:url => req["url"])
         @product.images << img
       end
-
+      flash[:message] = 'Product created!'
       redirect_to @product
     else
+      flash[:message] = 'There was a problem with your product'
       render 'new'
     end
   end
@@ -39,16 +58,18 @@ before_action :user_signed_in?, :except => [:index, :show]
 
   def update
     @product = Product.find(params[:id])
-
+    # raise 'hell'
     if @product.update(product_params)
       params[:photos].present? && params[:photos].each do |photo|
         req = Cloudinary::Uploader.upload(photo) # This is the magic stuff that will let us upload an image to Cloudinary when creating a new product.
         img = Image.create(:url => req["url"])
         @product.images << img
       end
+      flash[:message] = 'Product Updated'
       @product.update product_params
         redirect_to @product
     else
+      flash[:message] = 'There was a problem with your product'
       render 'edit'
     end
   end

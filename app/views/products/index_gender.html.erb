@@ -1,0 +1,12 @@
+<h1><%= @page_title %></h1>
+<% @products.each do |product| %>
+  <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
+    <h3><%= product.name %></h3>
+    <p><%= product.description %></p>
+  </a>
+  <% end %>
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++

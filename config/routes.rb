@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
+  get '/products_for/:gender' => 'products#index_gender'
+
+
 
 end
