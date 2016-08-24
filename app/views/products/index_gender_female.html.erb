@@ -1,4 +1,4 @@
-<div class="index-female ifm">
+  <div class="index-female ifm">
   <div class="row">
     <h1>show all categories here Women</h1>
     <div class="col-xs-12 col-md-9 index-content female-content">
@@ -10,10 +10,12 @@
           <% @products.each do |product| %>
             <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
               <article class="col-md-3 wrap">
-                <%# image_tag( 'woman.jpg', :class => 'woman-img') %>
-
-                  <img src="<%= product.main_image_url %>" alt="" class="occasion-image img-responsive" />
-                  <!-- To get the image I created a method in product.rb in the model so we can use everywhere in products view, contorller and model  -->
+              <% if not product.main_image_url.empty? %>
+                <img src="<%= product.main_image_url %>" alt="" class="occasion-image img-responsive" />
+                <%# To get the image I created a method in product.rb in the model so we can use everywhere in products view, contorller and model  %>
+              <% else %>
+                <%= image_tag( 'logo.png', :class => 'logo-img') %>
+              <% end %>
                   <h3><%= product.name %></h3>
               </article>
             </a>

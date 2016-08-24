@@ -29,10 +29,10 @@ class Product < ActiveRecord::Base
 
   def main_image_url
     #  return a placeholder/default image if no image has been uploaded
-    if images.first.present?
-      @image_url = images.first.url
+    if images.first.present? and images.first.url.present?
+      images.first.url
     else
-     @image_url = "/assets/logo.png"
+      ''
     end
   end
 
