@@ -9,6 +9,7 @@
 #  end_time   :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  rate_daily :decimal(, )
 #
 
 class Booking < ActiveRecord::Base
@@ -17,4 +18,13 @@ class Booking < ActiveRecord::Base
 
   validates :start_time, :presence => true
   validates :end_time, :presence => true
+
+  def booking_days
+    (end_time - start_time) / 1.day
+  end
+
+  def total_price
+    product.rate_daily * booking_days
+  end
+
 end

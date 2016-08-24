@@ -9,6 +9,12 @@ before_action :user_signed_in?, :except => [:index, :show]
     @female = Product.where(:gender => 'female').order("created_at DESC")
   end
 
+  def category_index
+    # to show the products by category
+    # raise 'hell'
+    @products = Product.where(:category =>'category_id').order("created_at DESC")
+  end
+
   def index_gender
     # raise 'hell'
     if params['gender'] == 'men'
@@ -30,8 +36,9 @@ before_action :user_signed_in?, :except => [:index, :show]
 
   def show
     @product = Product.find(params[:id])
-    @male = Product.where(:gender => 'male').order("created_at DESC")
-    @female = Product.where(:gender => 'female').order("created_at DESC")
+    # @male = Product.where(:gender => 'male').order("created_at DESC")
+    # @female = Product.where(:gender => 'female').order("created_at DESC")
+    # @booking = Booking.new
   end
 
   def new

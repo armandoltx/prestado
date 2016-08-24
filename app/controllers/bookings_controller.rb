@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
     @booking.user_id = @current_user.id
     @booking.product_id = params[:product_id]
 
+    # raise 'hell'
+
     @product = Product.find params[:product_id]
     if @booking.save
       flash[:message] = 'Booking successful!'

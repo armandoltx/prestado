@@ -13,6 +13,7 @@
 #  user_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  rate_daily  :decimal(, )
 #
 
 class Product < ActiveRecord::Base
@@ -24,6 +25,17 @@ class Product < ActiveRecord::Base
   def main_image
     images.first
   end
+
+
+  def main_image_url
+    #  return a placeholder/default image if no image has been uploaded
+    if images.first.present?
+      @image_url = images.first.url
+    else
+     @image_url = "/assets/logo.png"
+    end
+  end
+
 
   def carousel_images
     images[1..-1]

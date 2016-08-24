@@ -2,10 +2,10 @@
 
 <%= form_for [@product, Booking.new], :html => { :class => "form" }  do |f|%>
       <div>
-        <%= f.text_field :start_time, class:"datepicker" %>
+        <%= f.text_field :start_time, class:"datepicker-start" %>
       </div>
       <div>
-        <%= f.text_field :end_time, class:"datepicker" %>
+        <%= f.text_field :end_time, class:"datepicker-end" %>
       </div>
     <%= f.submit 'submit', :class => 'submit' %>
 <% end %>

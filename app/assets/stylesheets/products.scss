@@ -61,6 +61,9 @@
             color: #FFFFFF;
             padding: 1vh 0;
         }
+        img {
+            display: inline-block !important;
+        }
     }
 }
 /* ========== PRODUCTS INDEX-FEMALE INDEX-MALE================ */
@@ -166,6 +169,16 @@
         input[type="submit"] {
             width: 55%;
             @include button;
+        }
+        .preview-rate {
+            display: none;
+            margin: 0 auto;
+            width: 55%;
+            color: $white;
+            border: $border solid $secondary;
+            border-radius: 1px;
+            padding: 15px;
+            background-color: $third;
         }
     }
     .product-show-booking-list {
