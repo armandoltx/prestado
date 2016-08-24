@@ -75,7 +75,7 @@
 }
 .home-content-2,
 .home-content-3 {
-    background-color: rgba($primary, 0.9); //rgba( $ayellow, .7 );
+    background-color: rgba($third, 0.9); //rgba( $ayellow, .7 );
     color: $white;
 }
 .content-1,
@@ -88,6 +88,9 @@
         a {
             @include button;
             line-height: 3;
+            &:hover {
+                background-color: $primary !important;
+            }
         }
     }
 }
