@@ -4,9 +4,12 @@
       <div class="col-xs-12 edit-header">
         <h1><%= "Hello #{ @user.name }" %></h1>
       </div> <!-- end 1st column header -->
-      <div class="col-xs-12 col-md-4  col-md-offset-1 container-form">
+      <div class="col-xs-12 col-md-4 container-form">
         <div class="wrapper form">
           <h2>Edit Profile</h2>
+          <%= cl_image_tag(@user.image, class: 'user-img img-responsive') %>
+
+
 <%# =========    In case there is any error %>
         <% if @user.errors.any? %>
           <ol>
@@ -36,29 +39,35 @@
           </div>
           <div class="input-group">
             <%= cl_image_upload_tag(@user.image) %>
-
           </div>
           <%= f.submit "Sign Up", :class => 'submit' %>
           <% end %>
         </div>
       </div><!-- end container-form -->
-        <div class="col-xs-12 col-md-6 container-terms">
-          <h2>Your History</h2>
-          <div class="edit-products">
-            <h3>Your Products</h3>
-            <% @user.products.each do |product| %>
-              <li><a href="<%=  product_path product %>"><%= product.name %></a></li>
-            <% end %>
-          </div><!-- end 4th line bookings-->
-          <div class="edit-bookings">
-            <h3>Your Bookings</h3>
-            <% @user.bookings.each do |booking| %>
-              <li><%= booking.product.name %></li>
-            <% end %>
-          </div><!-- end 4th line bookings-->
-        </div> <!-- end row -->
-
+        <div class="col-xs-12 col-md-8 container-terms">
+          <div class="row">
+            <h2>Your History</h2>
+            <div class="col-xs-12 col-md-6 edit-user-products">
+              <h3>Your Products</h3>
+              <% @user.products.each do |product| %>
+                <li><a href="<%=  product_path product %>"><%= product.name %></a></li>
+              <% end %>
+            </div><!-- end 4th edit-user-products-->
+            <div class="col-xs-12 col-md-6 edit-user-bookings">
+                <h3>Your Bookings</h3>
+                <table class="table">
+                  <tbody>
+                  <% @user.bookings.each do |booking| %>
+                  <tr>
+                    <td><strong><%= booking.product.name %>:</strong></td>
+                    <td><%= booking.start_time.strftime ('%d of %B, %Y at %I:%M %p') %></td>
+                    <!-- .booking_days come from the model booking.rb -->
+                  </tr>
+                  <% end %>
+                  </tbody>
+                </table><!-- end table -->
+            </div><!-- end 4th edit-user-bookings-->
+          </div><!-- end row -->
         </div><!-- end container-term -->
-
   </div><!-- end edit-user -->
 </div><!-- end container -->

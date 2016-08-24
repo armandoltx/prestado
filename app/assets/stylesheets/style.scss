@@ -40,9 +40,27 @@ header.navbar {
 .edit-user {
     h1 {
         text-align: center;
+        margin: 25px 0;
+    }
+    .user-img {
+        max-width: 200px;
     }
     .container-terms {
         @include terms;
+        max-height: 863px;
+        overflow: scroll;
+        h2 {
+            text-align: center;
+        }
+        .edit-user-products {
+            li {
+                list-style-type: none;
+                a {
+                    @include link-menu;
+                    color: $secondary !important;
+                }
+            }
+        }
     }
 }
 .sign-page {
@@ -51,7 +69,8 @@ header.navbar {
         @include terms;
     }
 }
-/*========= HEADER =======*/
+/*=========  =======*/
 td {
     border-bottom: 1px solid #ddd;
 }
+/*========= EDIT USER PROFILE =======*/
