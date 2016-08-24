@@ -19,6 +19,17 @@
         h1 {
             text-align: center;
         }
+        .form-row {
+            margin-bottom: 20px;
+            input[type="text"] {
+                color: $primary;
+                &:active,
+                &:focus {
+                    outline: none;
+                    border: $border solid $third;
+                }
+            }
+        }
         .input-group {
             //position: relative; to put the label on top of the input
             position: relative;

@@ -1,3 +1,19 @@
+<!--========                 =========== -->
+<!--======== need for stripe =========== -->
+<!--========                 =========== -->
+
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+Stripe.setPublishableKey('pk_test_ZABxFbrh9a7JzNNECprTDUx4');
+</script>
+
+<!--========                 =========== -->
+<!--======== end need for stripe =========== -->
+<!--========                 =========== -->
+
+
+
 <div class="container">
   <div class="panel panel-default booking-show">
     <div class="panel-body">
@@ -5,98 +21,127 @@
         <div class="col-xs-12 booking-show-header">
           <h1><%= "#{ @booking.product.name }" %></h1>
         </div><!-- end booking-header -->
-        <div class="col-xs-12 col-md-4 booking-show-image">
-          <div id='carousel-custom' class='carousel slide' data-ride='carousel'>
-              <div class='carousel-outer'>
-                  <!-- Wrapper for slides -->
-                  <div class='carousel-inner'>
-                      <% @product.carousel_images.each_with_index do |image, i| %>
-                      <div class='item <%= 'active' if i == 0%>'>
-                        <%= cl_image_tag(image.url, :width => 300, :height => 350, :class => 'img-responsive')  %>
-                      </div>
-                      <% end if @booking.product.carousel_images %>
-
-                  </div><!-- end carousel-inner -->
-
-                  <!-- Controls -->
-                  <a class='left carousel-control' href='#carousel-custom' data-slide='prev'>
-                      <span class='glyphicon glyphicon-chevron-left'></span>
-                  </a>
-                  <a class='right carousel-control' href='#carousel-custom' data-slide='next'>
-                      <span class='glyphicon glyphicon-chevron-right'></span>
-                  </a>
-              </div><!-- end carousel-outer -->
-          </div><!-- end carousel-custom -->
-        </div><!-- end booking-image -->
-        <div class="col-xs-12 col-md-4 col-md-offset-2 booking-show-profile">
-          <div class="table-responsive">
-            <table class="table">
-              <tbody>
-                  <tr>
-                    <td><strong>Name:</strong></td>
-                    <td><%= @booking.product.name %></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Brand:</strong></td>
-                    <td><%= @booking.product.brand %></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Gender:</strong></td>
-                    <td><%= @booking.product.gender %></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Size:</strong></td>
-                    <td><%= @booking.product.size %></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Colour:</strong></td>
-                    <td><%= @booking.product.colour %></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Description:</strong></td>
-                    <td><%= @booking.product.description %></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Address:</strong></td>
-                    <td><%= @booking.product.user.address %></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Rate per Day:</strong></td>
-                    <td><%= number_to_currency(@booking.product.rate_daily, unit: "AUD $") %></td>
-                  </tr>
-              </tbody>
-            </table><!-- end table -->
-          </div><!-- end table-responsive -->
-        </div><!-- end booking-show-profile -->
-        <div class="col-xs-12 col-md-4" id="">
-          <div class="table-responsive">
-            <table class="table">
-              <tbody>
-                  <tr>
-                    <td><strong>Days:</strong></td>
-                    <td><%= @booking.booking_days %></td>
+        <div class="col-xs-12 booking-show-sub-header">
+          <h2>Booking Details</h2>
+        </div><!-- end booking-header -->
+        <div class="col-xs-12 col-md-8 booking-content" id="">
+          <div class="row">
+            <div class="col-xs-12 table-responsive">
+              <table class="table">
+                <tbody>
+                    <tr>
+                      <td><strong>Days:</strong></td>
+                      <td><%= @booking.booking_days %></td>
+                      <!-- .booking_days come from the model booking.rb -->
+                    </tr>
+                    <td><strong>Amount:</strong></td>
+                    <td><%= number_to_currency(@booking.total_price, unit: "AUD $") %></td>
                     <!-- .booking_days come from the model booking.rb -->
                   </tr>
-                  <td><strong>Amount:</strong></td>
-                  <td><%= number_to_currency(@booking.total_price, unit: "AUD $") %></td>
-                  <!-- .booking_days come from the model booking.rb -->
-                </tr>
-                </tbody>
-              </table><!-- end table -->
-        </div>
+                  </tbody>
+                </table><!-- end table -->
+            </div>
+            <div class="col-xs-12 col-md-6 booking-show-image">
+              <div id='carousel-custom' class='carousel slide' data-ride='carousel'>
+                  <div class='carousel-outer'>
+                      <!-- Wrapper for slides -->
+                      <div class='carousel-inner'>
+                          <% @product.carousel_images.each_with_index do |image, i| %>
+                          <div class='item <%= 'active' if i == 0%>'>
+                            <%= cl_image_tag(image.url, :width => 300, :height => 350, :class => 'img-responsive')  %>
+                          </div>
+                          <% end if @booking.product.carousel_images %>
+
+                      </div><!-- end carousel-inner -->
+
+                      <!-- Controls -->
+                      <a class='left carousel-control' href='#carousel-custom' data-slide='prev'>
+                          <span class='glyphicon glyphicon-chevron-left'></span>
+                      </a>
+                      <a class='right carousel-control' href='#carousel-custom' data-slide='next'>
+                          <span class='glyphicon glyphicon-chevron-right'></span>
+                      </a>
+                  </div><!-- end carousel-outer -->
+              </div><!-- end carousel-custom -->
+            </div><!-- end booking-image -->
+            <div class="col-xs-12 col-md-6 booking-show-profile">
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                      <tr>
+                        <td><strong>Name:</strong></td>
+                        <td><%= @booking.product.name %></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Brand:</strong></td>
+                        <td><%= @booking.product.brand %></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Gender:</strong></td>
+                        <td><%= @booking.product.gender %></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Size:</strong></td>
+                        <td><%= @booking.product.size %></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Colour:</strong></td>
+                        <td><%= @booking.product.colour %></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Description:</strong></td>
+                        <td><%= @booking.product.description %></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Address:</strong></td>
+                        <td><%= @booking.product.user.address %></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Rate per Day:</strong></td>
+                        <td><%= number_to_currency(@booking.product.rate_daily, unit: "AUD $") %></td>
+                      </tr>
+                  </tbody>
+                </table><!-- end table -->
+              </div><!-- end table-responsive -->
+            </div><!-- end booking-show-profile -->
 
 
 
 
-      </div><!-- end row-->
-    </div><!-- end panel-body -->
+
+
+
+          </div><!-- end nested row in booking content -->
+
+
+        </div><!-- end -->
+        <div class="col-xs-12 col-md-4 stripe container-form">
+          <div class="wrapper form">
+          <form action="" method="POST" id="payment-form" class="form">
+            <span class="payment-errors"></span>
+
+            <div class="input-group">
+                <input type="text" size="20" data-stripe="number">
+                <label class="label">Card Number:</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" size="4" data-stripe="cvc">
+                <label class="label">CVC</label>
+            </div>
+            <div class="form-row">
+                <span>Expiration (MM/YY)</span>
+                <input type="text" size="2" data-stripe="exp_month">
+              <span> / </span>
+              <input type="text" size="2" data-stripe="exp_year">
+            </div>
+            <input type="submit" class="submit" value="Submit Payment">
+          </form>
+          </div>
+        </div><!-- end payment -->
+
+
+      </div><!-- end row -->
+    </div><!-- end end panel-body -->
   </div><!-- end end panel panel-default booking-show -->
 </div><!-- end container -->
-
-
-
-
-
-
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
