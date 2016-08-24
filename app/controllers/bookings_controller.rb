@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
 
+  def show
+    @booking = Booking.find(params[:id])
+
+  end
 
   def create
     @booking = Booking.new booking_params
@@ -12,9 +16,9 @@ class BookingsController < ApplicationController
     if @booking.save
       flash[:message] = 'Booking successful!'
     else
-      flash[:message] = 'There was a problem with your booking' # FIXME
+      flash[:message] = 'There was a problem with your booking'
     end
-    redirect_to @product
+    redirect_to product_booking_path(@product, @booking)
   end
 
   def update
