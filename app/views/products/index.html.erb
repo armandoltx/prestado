@@ -25,72 +25,18 @@
       <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
         <article class="col-md-4 wrap">
           <% if not product.main_image_url.empty? %>
+          <figure class="wrap-img">
             <img src="<%= product.main_image_url %>" alt="" class="occasion-image img-responsive" />
             <%# To get the image I created a method in product.rb in the model so we can use everywhere in products view, contorller and model  %>
           <% else %>
             <%= image_tag( 'logo.png', :class => 'logo-img') %>
           <% end %>
+          </figure>
+          <section class="text-container">
             <h3><%= product.name %></h3>
+            </section>
         </article>
       </a>
     <% end %>
   </div><!-- end row -->
 </div><!-- end container -->
-
-
-
-================
-
-
-
-
-
-
-  <div class="container">
-
-    <%# @male.each do |m| %>
-    <p><%# m.name %></p>
-    <%# end %>
-
-
-        <h3><%# product.name %></h3>
-      <!-- </a> -->
-
-
-
-    <%# end %>
-  </div><!-- end container -->
-
-  <% Category.all.each do |category| %>
-    <div>
-      <h2><%= category.name.capitalize  %></h2>
-      <ul>
-cZcZXczxcZcZXcZX
-      <% category.products.each do |product| %>
-        <li><%= link_to product.name, product %></li>
-      <% end %>
-
-    </ul>
-    </div>
-  <% end %>
-
-
-
-
-
-
-
-  <div class="col-xs-12 col-md-6 category-index">
-    <% Category.all.each do |category| %>
-      <ul>
-        <h2><%= link_to category.name.capitalize  %></h2>
-      </ul>
-
-        <% category.products.each do |product| %>
-          <!-- <li><%# link_to product.name, product %></li> -->
-        <% end %>
-
-      </ul>
-      </div>
-    <% end %>
-  </div><!-- end category-index -->

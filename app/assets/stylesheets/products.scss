@@ -57,13 +57,19 @@
         &:hover {
             box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         }
-        h3 {
-            background-color: $secondary;
-            color: #FFFFFF;
-            padding: 1vh 0;
+        .wrap-img {
+            max-height: 80%;
+            img {
+                display: inline-block !important;
+            }
         }
-        img {
-            display: inline-block !important;
+        .text-container {
+            max-height: 20%;
+            h3 {
+                background-color: $secondary;
+                color: #FFFFFF;
+                padding: 1vh 0;
+            }
         }
     }
 }

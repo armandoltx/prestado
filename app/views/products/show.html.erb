@@ -119,13 +119,13 @@
           </ol>
         </div><!-- end product-booking-list -->
       </div><!-- end row -->
-        <div class="col-xs-12 product-show-booking-map">
-          <div id="map" class="map"></div>
-        </div><!-- end product-booking-map -->
 
     </div><!-- end panel-body -->
   </div><!-- end end panel panel-default product-show -->
+  <div id="disqus_thread"></div>
 </div><!-- end container -->
+
+
 
 
 <%# ############################################################################################## %>
@@ -149,3 +149,27 @@ var rate = <%= @product.rate_daily %>;
 <%# <!-- google map API key - AIzaSyDQhiJp0Ee3xKve1KYOLfVY0kF9lHF1xrc -->
  %>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQhiJp0Ee3xKve1KYOLfVY0kF9lHF1xrc&callback=initMap" async defer></script>
+
+
+
+
+
+
+
+
+ <%# DISQUS code, to show disqus in our occasion page %>
+ <script>
+ var disqus_config = function () {
+     this.page.url = '<%= product_url(@product) %>'  // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '<%= @product.id %>'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+ };
+ (function() { // DON'T EDIT BELOW THIS LINE
+     var d = document, s = d.createElement('script');
+     s.src = '//https-prestado-herokuapp-com.disqus.com/embed.js';
+     s.setAttribute('data-timestamp', +new Date());
+     (d.head || d.body).appendChild(s);
+ })();
+ </script>
+ <noscript>
+  <p>Please enable JavaScript to view the comments.</p>
+ </noscript>
