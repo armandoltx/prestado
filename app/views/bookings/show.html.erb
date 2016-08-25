@@ -104,41 +104,40 @@ Stripe.setPublishableKey('pk_test_ZABxFbrh9a7JzNNECprTDUx4');
                 </table><!-- end table -->
               </div><!-- end table-responsive -->
             </div><!-- end booking-show-profile -->
-
-
-
-
-
-
-
           </div><!-- end nested row in booking content -->
-
-
         </div><!-- end -->
-        <div class="col-xs-12 col-md-4 stripe container-form">
-          <div class="wrapper form">
-          <form action="" method="POST" id="payment-form" class="form">
-            <span class="payment-errors"></span>
 
+        <div class="col-xs-12 col-md-4 stripe container-form">
+          <%# Beacuse I am using most of the code of this page in the confirm page, the best thing is to reuse this page. So thanks to Joel I just created an if statement to rather show the form or the success payment and redirect to the same page in the form, but with the verb post  %>
+        <% if params[:paid].present? %>
+        <%# to check if it is present It neccessary to add a hidden input in the form for the server to check if the page is already visited and the form is submitted so the param [:paid] is present and then the if statement works %>
+          <div class="confirmed">
+            <h2>Payment confirmed</h2>
+          </div>
+        <% else %>
+          <div class="wrapper form">
+          <%= form_tag product_booking_path(@booking.product, @booking), :id => 'payment-form', :class => 'form' do %>
+            <span class="payment-errors"></span>
+            <input type="hidden" name="paid" value="true">
             <div class="input-group">
-                <input type="text" size="20" data-stripe="number">
+                <input type="text" size="20" data-stripe="number" required>
                 <label class="label">Card Number:</label>
             </div>
-
             <div class="input-group">
-                <input type="text" size="4" data-stripe="cvc">
+                <input type="text" size="4" data-stripe="cvc" required>
                 <label class="label">CVC</label>
             </div>
             <div class="form-row">
                 <span>Expiration (MM/YY)</span>
-                <input type="text" size="2" data-stripe="exp_month">
+                <input type="text" size="2" data-stripe="exp_month" required>
               <span> / </span>
-              <input type="text" size="2" data-stripe="exp_year">
+              <input type="text" size="2" data-stripe="exp_year" required>
             </div>
             <input type="submit" class="submit" value="Submit Payment">
-          </form>
-          </div>
-        </div><!-- end payment -->
+          <% end %>
+        </div><!-- end wrapper form -->
+          <% end %>
+        </div><!-- end container-form -->
 
 
       </div><!-- end row -->

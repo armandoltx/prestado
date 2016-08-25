@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
 
     @product = Product.find params[:product_id]
     if @booking.save
-      flash[:message] = 'Booking successful!'
+      flash[:message] = 'Booking successful!, You just need to pay'
     else
       flash[:message] = 'There was a problem with your booking'
     end

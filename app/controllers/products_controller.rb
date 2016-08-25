@@ -30,9 +30,7 @@ before_action :user_signed_in?, :except => [:index, :show]
       redirect_to products_path
     end
   end
-  def index_category
 
-  end
 
   def show
     @product = Product.find(params[:id])

@@ -1,5 +1,5 @@
 @import "variables";
-/* ========== Sign Up Form Edit Profle form================ */
+/* ========== Sign Up Form Edit Profle form ================ */
 .wrapper {
     width: 90%;
     max-width: 295px;
@@ -192,5 +192,23 @@
         &:hover {
             background-color: $third;
         }
+    }
+}
+/* ========== Payment Form ================ */
+.container-form {
+    .confirmed {
+        text-align: center;
+        background-color: $secondary;
+        color: $third;
+        h2 {
+            padding: 20px;
+        }
+    }
+    .form {
+        text-align: center;
+    }
+    .payment-errors {
+        text-align: center;
+        color: $third;
     }
 }
