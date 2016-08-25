@@ -157,6 +157,17 @@
         }
     }
 }
+/* ========== Login Page ================ */
+.login-page {
+    text-align: center;
+    .login-page-header {
+        padding: 35px 0;
+    }
+    .login-page-form {
+        font-family: $ubuntu;
+    }
+    margin-bottom: 20px;
+}
 /* ========== Login Form ================ */
 .login {
     text-align: center;

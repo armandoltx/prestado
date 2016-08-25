@@ -69,6 +69,7 @@
     text-align: center;
     padding: 15px 0;
     background-color: $white;
+    border-bottom: 5px solid rgba($primary, 0.8);
     h2 {
         font-size: $h2;
     }
@@ -100,7 +101,8 @@
 }
 /*========= home section 3 Testimonial =======*/
 .home-3 {
-    padding: 15px 0;
+    border-top: 5px solid rgba($primary, 0.8);
+    padding: 55px 0;
     .testimonials {
         width: 85%;
         margin: auto;
@@ -129,32 +131,6 @@
                 }
                 width: 100%;
                 list-style: none;
-                &:before {
-                    content: "“";
-                    color: $secondary;
-                    display: inline;
-                    font-size: 200px;
-                    font-family: proxima_novalight;
-                    position: absolute;
-                    line-height: 80px;
-                    left: 0;
-                    top: 0;
-                    opacity: 0.1;
-                    margin: 0;
-                }
-                &:after {
-                    content: "„";
-                    color: $secondary;
-                    display: inline;
-                    font-size: 200px;
-                    font-family: proxima_novalight;
-                    position: absolute;
-                    line-height: normal;
-                    right: 0;
-                    bottom: 0;
-                    opacity: 0.1;
-                    margin: 0;
-                }
             }
         }
     }

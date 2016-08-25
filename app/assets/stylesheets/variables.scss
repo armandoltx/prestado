@@ -65,3 +65,22 @@ $h2: 35px;
     box-shadow: 0 0 3px $grey;
     font-family: $noto;
 }
+@mixin input-login {
+    border: none;
+    // border-bottom: 1px solid $primary;
+    background-color: $secondary;
+    &::-webkit-input-placeholder {
+        color: $fourth;
+        text-align: center;
+    }
+}
+@mixin input-submit {
+    background-color: $secondary;
+    border-radius: 1px;
+    color: $white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+        background-color: $third;
+    }
+}

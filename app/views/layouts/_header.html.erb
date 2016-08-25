@@ -9,8 +9,8 @@
           <div class="col-xs-12 col-sm-5 col-md-offset-2 login">
             <% if @current_user.present? %>
             <ul>
-              <li><%= link_to "Edit profile", edit_user_path(@current_user) %></li>
-              <li><%= link_to "Logout #{ @current_user.name }", login_path, :method => :delete %></li>
+              <li><%= link_to "#{ @current_user.name }'s Profile ", edit_user_path(@current_user) %></li>
+              <li><%= link_to "Logout", login_path, :method => :delete %></li>
             </ul>
             <% else %>
               <%= form_tag '/login' do %>
@@ -22,7 +22,7 @@
           </div><!-- end login -->
           <nav class="col-xs-12 col-sm-6">
             <ul class="nav navbar-nav">
-              <li><%= link_to 'home', root_path %></li>
+              <li><%= link_to 'Home', root_path %></li>
               <% if @current_user.present? %>
                 <li><%= link_to "Products", products_path %></li>
                 <li><%= link_to "New Product", new_product_path %></li>
