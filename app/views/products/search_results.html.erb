@@ -1,13 +1,29 @@
+
+<script>
+var product_results = <%= @found_products[:products].to_json.html_safe %>;
+var location_results = <%= @found_products[:locations].to_json.html_safe %>;
+var current_user_location = {lat: <%= @current_user.latitude %>, lng: <%= @current_user.longitude %> };
+console.log(product_results, location_results);
+
+function showMap(){
+  searchResultsMap(current_user_location, location_results);
+}
+</script>
+
+
 <div class="container search-results-wrapper">
   <div class="row">
     <div class="col-md-8 results-content">
       <h2>Search Results for '<%= @search_term %>'</h2>
 
-      <% if @found_products.nil? %>
+      <% if @found_products[:products].empty? %>
           <p>No result found</p>
       <% end %>
 
-      <% @found_products.each do |product| %>
+<div id="results_map"  class="map"></div>
+
+
+      <% @found_products[:products].each do |key, product| %>
             <h2><%= product.name %></h2>
       <% end %>
 
@@ -23,3 +39,5 @@
     </div><!-- end results-sidebar -->
   </div><!-- end row -->
 </div><!-- end container -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQhiJp0Ee3xKve1KYOLfVY0kF9lHF1xrc&callback=showMap" async defer></script>

@@ -59,18 +59,28 @@
                     <td><%= @product.description %></td>
                   </tr>
                   <tr>
-                    <td><strong>Address:</strong></td>
-                    <td><%= @product.user.address %></td>
-                  </tr>
-                  <tr>
                     <td><strong>Rate per Day:</strong></td>
                     <td><%= number_to_currency(@product.rate_daily, unit: "AUD $") %></td>
+                  </tr>
+                  <!-- <tr>
+                    <td><strong>Address:</strong></td>
+                    <td><%= @product.user.address %></td>
+                  </tr> -->
+                  <tr>
+                    <td><strong>Location:</strong></td>
+                    <td><%= @product.user.reverse_geocode[:suburb]%></td>
                   </tr>
               </tbody>
             </table><!-- end table -->
           </div><!-- end table-responsive -->
-          <%= link_to 'edit', edit_product_path(@product) %>
-          <%= link_to 'delete', product_path(@product), :method => :delete, :data => { confirm: "are you sure?" } %>
+          <div class="col-xs-12 product-show-booking-map">
+            <div id="map" class="map"></div>
+          </div><!-- end product-booking-map -->
+          <div class="col-xs-12 product-show-buttons">
+            <%= link_to 'edit', edit_product_path(@product) %>
+            <%= link_to 'delete', product_path(@product), :method => :delete, :data => { confirm: "are you sure?" } %>
+          </div>
+
         </div><!-- end product-show-profile -->
       </div><!-- end row -->
       <div class="row booking">
@@ -127,9 +137,10 @@
 <script type="text/javascript">
 //<%# those are variables we need to use in javascript we are using in map.js %>
 var myLatLng = {
-    lat: <%= @product.user.latitude %>,
-    lng: <%= @product.user.longitude %>
+    lat: <%= number_with_precision(@product.user.latitude, :precision => 2) %>,
+    lng: <%= number_with_precision(@product.user.longitude, :precision => 2) %>
 };
+
 var rate = <%= @product.rate_daily %>;
 </script>
 

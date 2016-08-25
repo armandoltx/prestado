@@ -101,10 +101,14 @@ before_action :user_signed_in?, :except => [:index, :show]
   end
 
   def search_results
-    @products = Product.all.order('created_at DESC')
-
+    #@products = Product.all.order('created_at DESC')
     if params.has_key?('search_keywords')
-      @found_products = Product.keyword_search(params[:search_keywords])
+      #@found_products = Product.keyword_search(params[:search_keywords])
+      @found_products = @current_user.products_near( params[:search_keywords] )
+
+      p @found_products
+
+      #the method .products_near come from the user.rb the users view, to find the products that are close to the current user
       @search_term = params[:search_keywords] #create this varible to store the name to display for search, check search_results.html.erb
     end
 

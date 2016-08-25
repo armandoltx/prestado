@@ -30,4 +30,29 @@ class User < ActiveRecord::Base
   geocoded_by :address   #using geocoder to convert location into coordinates
   after_validation :geocode          # auto-fetch coordinates
 
+  reverse_geocoded_by :latitude, :longitude  do |obj,results|
+    if geo = results.first
+      # city    = geo.city
+      # zipcode = geo.postal_code
+      # country = geo.country_code
+      { postcode: geo.postal_code, country: geo.country_code, suburb: geo.city  }
+    end
+  end
+
+
+  def products_near( keyword )
+    user_ids = User.near( self ).map &:id
+    products = Product.where('user_id in (?)', user_ids).where("name ILIKE '%#{keyword}%' OR description ILIKE '%#{keyword}%'").index_by(&:id)
+    locations = {}
+    products.map do |user_id, product |
+      locations[user_id] = {latitude: product.user.latitude, longitude: product.user.longitude}
+    end
+    {products: products, locations: locations}
+  end
+
+
+
+
+  #to get just the suburb from the address, not to show all the address.
+
 end

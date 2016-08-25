@@ -53,6 +53,7 @@
         text-align: center;
         padding-right: 0;
         padding-left: 0;
+        background-color: $primary;
         &:hover {
             box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         }
@@ -111,9 +112,15 @@
     }
     .product-show-profile {
         padding-top: 40px;
-        a {
+        & > div > a {
             @include button;
-            padding: 15px 65px;
+            padding: 15px 62px;
+        }
+        .product-show-booking-map {
+            padding-bottom: 30px;
+            & div {
+                border-radius: 15px;
+            }
         }
     }
     #carousel-custom {
