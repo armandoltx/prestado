@@ -5,6 +5,7 @@ gem 'rails_12factor'
 gem 'cloudinary'
 gem "simple_calendar", "~> 2.0"
 gem 'geocoder'
+gem "font-awesome-rails"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

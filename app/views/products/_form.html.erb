@@ -10,27 +10,27 @@
     <div class="col-xs-12 col-md-4 product-new-profile">
       <div>
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, :required => true %>
       </div>
       <div>
         <%= f.label :brand %>
-        <%= f.text_field :brand %>
+        <%= f.text_field :brand, :required => true %>
       </div>
       <div>
         <%= f.label :gender %>
-        <%= f.text_field :gender %>
+        <%= f.text_field :gender, :required => true %>
       </div>
       <div>
         <%= f.label :size %>
-        <%= f.text_field :size %>
+        <%= f.text_field :size, :required => true %>
       </div>
       <div>
         <%= f.label :colour %>
-        <%= f.text_field :colour %>
+        <%= f.text_field :colour, :required => true %>
       </div>
       <div>
         <%= f.label :description %>
-        <%= f.text_area(:description, cols: 40, rows: 15, :placeholder => 'Description') %>
+        <%= f.text_area(:description, :required => true, cols: 40, rows: 15, :placeholder => 'Description') %>
       </div>
     </div><!-- end product-profile -->
     <%= f.submit 'submit', :class => 'submit' %>

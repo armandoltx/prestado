@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
 
 
   def products_near( keyword )
-    user_ids = User.near( self ).map &:id
+    user_ids = User.near( self ).map &:id # the word self means user, but because we are inside the user class we can put it It is similar to put user
     products = Product.where('user_id in (?)', user_ids).where("name ILIKE '%#{keyword}%' OR description ILIKE '%#{keyword}%'").index_by(&:id)
     locations = {}
     products.map do |user_id, product |
