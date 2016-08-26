@@ -118,7 +118,7 @@ before_action :user_signed_in?, :except => [:index, :show]
   private
 
   def product_params
-    params.require(:product).permit(:name, :brand, :gender, :size, :colour, :description, :photos, :category_id)
+    params.require(:product).permit(:name, :brand, :gender, :size, :colour, :description, :photos, :category_id, :rate_daily)
   end
 
 
