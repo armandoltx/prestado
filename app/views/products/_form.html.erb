@@ -30,9 +30,9 @@
         <%= f.label :category %>
         <%= collection_select :product, :category_id, Category.all, :id, :name %>
       </div>
-      <div>
+      <div class="input-group">
         <%= f.label :colour %>
-        <%= f.text_field :colour, :required => true %>
+        <%= f.text_field :colour, :required => true %>        
       </div>
     </div><!-- end product-new-profile -->
     <div class="col-xs-12 col-md-4 product-new-profile-description">
