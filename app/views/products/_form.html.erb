@@ -27,19 +27,26 @@
         <%= f.text_field :size, :required => true %>
       </div>
       <div class="input-group">
+        <%= f.label :rate_daily %>
+        <%= f.text_field :rate_daily, :required => true %>
+      </div>
+      <div class="input-group">
         <%= f.label :colour %>
         <%= f.text_field :colour, :required => true %>
       </div>
-      <div class="input-group">
-        <%= f.label :category %>
-        <%= collection_select :product, :category_id, Category.all, :id, :name %>
-      </div>
-
     </div><!-- end product-new-profile -->
     <div class="col-xs-12 col-md-4 product-new-profile-description">
-      <div class="input-group">
-    <%= f.label :description %>
-    <%= f.text_area(:description, :required => true, cols: 40, rows: 15, :placeholder => 'Description') %>
+
+    <div class="input-group">
+      <%= f.label :category %>
+      <%= collection_select :product, :category_id, Category.all, :id, :name, :required => true %>
+    </div>
+
+          <div class="input-group">
+        <%= f.label :description %>
+        <%= f.text_area(:description, :required => true, cols: 40, rows: 15, :placeholder => 'Description') %>
+  </div>
+
     </div>
   </div>
 </div>

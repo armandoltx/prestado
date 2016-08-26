@@ -24,7 +24,11 @@ class Booking < ActiveRecord::Base
   end
 
   def total_price
-    product.rate_daily * booking_days
+    if not product.rate_daily.blank?
+      product.rate_daily * booking_days
+    else
+      0.0
+    end
   end
 
 end
