@@ -7,18 +7,20 @@
           <div class="col-xs-12">
 
           </div>
-          <% @products.each do |product| %>
+          <% @products.each do |key, cat_products| %>
+             <% cat_products.each do |product| %>
             <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
               <article class="col-md-3 wrap">
-              <% if not product.main_image_url.empty? %>
-                <img src="<%= product.main_image_url %>" alt="" class="occasion-image img-responsive" />
-                <%# To get the image I created a method in product.rb in the model so we can use everywhere in products view, contorller and model  %>
-              <% else %>
-                <%= image_tag( 'logo.png', :class => 'logo-img') %>
-              <% end %>
+                <% if not product.main_image_url.empty? %>
+                  <img src="<%= product.main_image_url %>" alt="" class="occasion-image img-responsive" />
+                  <%# To get the image I created a method in product.rb in the model so we can use everywhere in products view, contorller and model  %>
+                <% else %>
+                  <%= image_tag( 'logo.png', :class => 'logo-img') %>
+                <% end %>
                   <h3><%= product.name %></h3>
               </article>
             </a>
+            <% end %>
           <% end %>
         </div><!-- end row -->
       </div><!-- end container -->
@@ -26,27 +28,15 @@
 
     <div class="col-xs-12 col-md-3 index-sidebar female-sidebar">
       <%= render 'search_product_form' %>
-      <% Category.all.each do |category| %>
-        <div>
-          <h2><%= category.name.capitalize  %></h2>
-          <ul>
 
-          <% category.products.where(:gender => 'female').each do |product| %>
-            <li><%= link_to product.name, product %></li>
+          <% @products.each do |category_id, cat_products| %>
+            <h3><%= @categories[category_id].name unless category_id.nil? %></h3>
+            <ul>
+            <% cat_products.each do |product| %>
+              <li><%= link_to product.name, product %></li>
+            <% end %>
+          </ul>
           <% end %>
-
-        </ul>
-        </div>
-      <% end %>
-      <h1><%= @page_title %></h1>
-      <% @products.each do |product| %>
-        <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
-          <h3><%= product.name %></h3>
-        </a>
-      <% end %>
     </div><!-- end index-sidebar -->
-
-
-
   </div><!-- end row -->
 </div><!-- end index-female -->

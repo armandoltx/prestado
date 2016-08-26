@@ -108,6 +108,20 @@
                 background-color: $third;
             }
         }
+        h3 {
+            margin-left: 39px;
+        }
+        ul {
+            li {
+                list-style-type: none;
+                a {
+                    color: $secondary;
+                    &:hover {
+                        color: $third;
+                    }
+                }
+            }
+        }
     }
 }
 /* ========== PRODUCTS SHOW ================ */

@@ -17,12 +17,15 @@ before_action :user_signed_in?, :except => [:index, :show]
 
   def index_gender
     # raise 'hell'
+    @categories = Category.all.index_by( &:id )
     if params['gender'] == 'men'
-      @products = Product.where(:gender => 'male').order("created_at DESC")
+      #@products = Product.where(:gender => 'male').order("created_at DESC")
+      @products = Product.where(gender: 'male').group_by &:category_id
       @page_title = 'Men'
       render :index_gender_male #to render a view, so the view need to have the name
     elsif  params['gender'] == 'women'
-      @products = Product.where(:gender => 'female').order("created_at DESC")
+      #@products = Product.where(:gender => 'female').order("created_at DESC")
+      @products = Product.where(gender: 'female').group_by &:category_id
       @page_title = 'Women'
       render :index_gender_female #to render a view, so the view need to have the name
     else
