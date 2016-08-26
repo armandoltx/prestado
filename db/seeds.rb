@@ -44,8 +44,8 @@ c6 = Category.create(:name => 'jumper and cardigan');
 c7 = Category.create(:name => 'coats and jackets');
 c8 = Category.create(:name => 'dress');
 c9 = Category.create(:name => 'top');
-
-
+c10 = Category.create(:name => 'jeans');
+c11 = Category.create(:name => 'trousers and shorts');
 
 
 
@@ -94,6 +94,13 @@ c2.products << p2
 c3.products << p3
 c4.products << p4
 c5.products << p5
+c10.products << p6
+c8.products << p7
+c4.products << p8
+c7.products << p9
+c10.products << p10
+
+
 
 #products belongs_to user
 u1.products << p1
