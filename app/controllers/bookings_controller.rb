@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-
+    @product = Product.find params[:product_id]
   end
 
   def create
