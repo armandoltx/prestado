@@ -67,7 +67,7 @@ before_action :user_signed_in?, :except => [:index, :show]
 
   def edit
     @product = Product.find(params[:id])
-    @product.user_id = @current_user.id
+    @product.user_id == @current_user.id
   end
 
   def update
