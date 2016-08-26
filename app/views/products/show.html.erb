@@ -136,13 +136,14 @@
 <%# this is for the map to get latitude and longitude %>
 <script type="text/javascript">
 //<%# those are variables we need to use in javascript we are using in map.js %>
-$(document).ready(function(){
 var myLatLng = {
     lat: <%= number_with_precision(@product.user.latitude, :precision => 2) %>,
     lng: <%= number_with_precision(@product.user.longitude, :precision => 2) %>
 };
 
 var rate = <%= @product.rate_daily %>;
+
+$(document).ready(function(){
 
 $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDQhiJp0Ee3xKve1KYOLfVY0kF9lHF1xrc&callback=initMap", function(){});
 
