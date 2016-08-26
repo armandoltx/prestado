@@ -11,12 +11,14 @@
              <% cat_products.each do |product| %>
             <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
               <article class="col-md-3 wrap">
+                <figure class="wrap-img">
                 <% if not product.main_image_url.empty? %>
                   <img src="<%= product.main_image_url %>" alt="" class="occasion-image img-responsive" />
                   <%# To get the image I created a method in product.rb in the model so we can use everywhere in products view, contorller and model  %>
                 <% else %>
                   <%= image_tag( 'logo.png', :class => 'logo-img') %>
                 <% end %>
+              </figure>
                   <h3><%= product.name %></h3>
               </article>
             </a>
