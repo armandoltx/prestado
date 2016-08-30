@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :products do
-  resources :bookings
+    resources :bookings
   end
 
   get '/login' => 'session#new'
