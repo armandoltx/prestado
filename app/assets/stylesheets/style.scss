@@ -81,6 +81,8 @@ td {
 .contenedor {}
 /*========= FOOTER =======*/
 footer {
+    position: absolute;
+    width: 100%;
     text-align: center;
     text-transform: uppercase;
     background-color: rgba($primary, 0.9); //rgba( $ayellow, .7 );
