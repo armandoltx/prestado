@@ -22,7 +22,7 @@
     </div>
   <% @products.each do |product| %>
     <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
-      <div class="col-xs-12 col-md-4 wrap-products">
+      <div class="col-xs-12 col-md-4 wrap-products wrap">
       <% if not product.main_image_url.empty? %>
         <figure>
           <img src="<%= product.main_image_url %>" alt="" class="occasion-image img-responsive" />

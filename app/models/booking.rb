@@ -16,8 +16,8 @@ class Booking < ActiveRecord::Base
   belongs_to :user
   belongs_to :product
 
-  validates :start_time, :presence => true
-  validates :end_time, :presence => true
+  validates_presence_of :start_time, :message => 'Please enter the day you want to start renting'
+  validates_presence_of :end_time, :message => 'Please enter the day you want to end renting'
 
   def booking_days
     (end_time - start_time) / 1.day
