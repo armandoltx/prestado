@@ -15,28 +15,28 @@
     </div><!-- end male-index -->
   </div><!-- end row -->
 </div><!-- end index -->
-
 <div class="container latest">
   <div class="row">
     <div class="col-xs-12 ">
       <h1>Latest Products</h1>
     </div>
-    <% @products.each do |product| %>
-      <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
-        <article class="col-md-4 wrap">
-          <% if not product.main_image_url.empty? %>
-          <figure class="wrap-img">
-            <img src="<%= product.main_image_url %>" alt="" class="occasion-image img-responsive" />
-            <%# To get the image I created a method in product.rb in the model so we can use everywhere in products view, contorller and model  %>
-          <% else %>
-            <%= image_tag( 'logo.png', :class => 'logo-img') %>
-          <% end %>
-          </figure>
-          <section class="text-container">
-            <h3><%= product.name %></h3>
-            </section>
-        </article>
-      </a>
-    <% end %>
+  <% @products.each do |product| %>
+    <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
+      <div class="col-xs-12 col-md-4 wrap-products">
+      <% if not product.main_image_url.empty? %>
+        <figure>
+          <img src="<%= product.main_image_url %>" alt="" class="occasion-image img-responsive" />
+          <%# To get the image I created a method in product.rb in the model so we can use everywhere in products view, contorller and model  %>
+      <% else %>
+      <!-- <img class="img-responsive" src="http://www.fillmurray.com/300/200" alt="" /> -->
+        <%= image_tag( 'logo.png', :class => 'logo-img img-responsive') %>
+      <% end %>
+        </figure>
+        <div class="wrap-text">
+          <h3><%= product.name %></h3>
+        </div><!-- end text-container -->
+      </div><!-- end wrap-products -->
+    </a><!-- end link -->
+      <% end %>
   </div><!-- end row -->
 </div><!-- end container -->

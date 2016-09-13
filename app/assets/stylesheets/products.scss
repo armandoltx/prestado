@@ -2,8 +2,12 @@
 /* ========== PRODUCTS INDEX ================ */
 .index {
     background-color: $grey;
+    text-align: center;
     .in-index {
-        padding: 20px 0 30px;
+        display: inline-block;
+        width: 100%;
+        max-width: 1200px;
+        padding: 40px 0;
     }
     .female-index {
         max-width: 629.5px;
@@ -13,19 +17,19 @@
         .woman {
             position: relative;
         }
-    }
-    .title {
-        position: absolute;
-        top: 400px;
-        left: 140px;
-        a {
-            @include button;
-            // color: #337ab7;
-            // text-decoration: none;
-            // font-size: 38px;
-            // background-color: yellow;
-            padding: 10px 150px;
-            border: none;
+        .title {
+            position: absolute;
+            top: 400px;
+            left: 100px;
+            a {
+                @include button;
+                // color: #337ab7;
+                // text-decoration: none;
+                // font-size: 38px;
+                // background-color: yellow;
+                border: none;
+                padding: 10px 175px;
+            }
         }
     }
     .male-index {
@@ -33,12 +37,63 @@
         max-height: 600px;
         text-align: center;
         background-color: $grey;
+        .man {
+            position: relative;
+        }
+        .title {
+            position: absolute;
+            top: 400px;
+            left: 100px;
+            a {
+                @include button;
+                // color: #337ab7;
+                // text-decoration: none;
+                // font-size: 38px;
+                // background-color: yellow;
+                border: none;
+                padding: 10px 185px;
+            }
+        }
     }
 }
 .latest {
     margin-bottom: 35px;
+    max-width: 1200px;
+    // background-color: navy;
+    margin: 0 auto;
+    // text-align: center;
     h1 {
         text-align: center;
+    }
+    .wrap-products {
+        height: 250px;
+        width: 300px;
+        // background-color: $primary;
+        margin: 25px 30px;
+        display: inline-block;
+        text-align: center;
+        &:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+        img {}
+        .logo-img {
+            margin: 0 auto;
+            width: auto;
+            height: auto;
+            max-width: 300px;
+            max-height: 200px !important;
+        }
+        figure {
+            // background-color: $primary;
+        }
+        .wrap-text {
+            // background-color: $secondary;
+            // border: 1px solid $secondary;
+            text-align: center;
+            h3 {
+                color: $secondary;
+            }
+        }
     }
     .wrap {
         max-height: 220px;
