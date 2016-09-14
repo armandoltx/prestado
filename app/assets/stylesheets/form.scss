@@ -34,6 +34,11 @@
             //position: relative; to put the label on top of the input
             position: relative;
             margin-bottom: 32px;
+            select#product_category_id {
+                margin-left: 10px !important;
+                height: 30px !important;
+                border: 1px solid $secondary;
+            }
             input[type="email"],
             input[type="password"],
             input[type="text"] {
