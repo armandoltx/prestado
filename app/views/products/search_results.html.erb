@@ -13,7 +13,7 @@ function showMap(){
 
 <div class="container search-results-wrapper">
   <div class="row">
-    <div class="col-md-8 results-content">
+    <div class="col-xs-12 col-md-8 results-content">
       <h2>Search Results for '<%= @search_term %>'</h2>
 
       <% if @found_products[:products].empty? %>
@@ -43,7 +43,7 @@ function showMap(){
       <% end %>
 
     </div><!-- end results-content -->
-    <div class="col-md-4 results-sidebar">
+    <div class="col-xs-12 col-md-offset-1 col-md-3 results-sidebar">
       <h2>Side Bar area</h2>
       <%= render 'search_product_form' %>
       <h3>Categories</h3>
