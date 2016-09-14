@@ -24,18 +24,35 @@ function showMap(){
 
 
       <% @found_products[:products].each do |key, product| %>
-            <h2><%= product.name %></h2>
+      <a href="<%= product_path product %>"> <%# 3 ways product || product_path product.id %>
+        <div class="col-xs-12 col-md-4 wrap-products wrap-results">
+        <% if not product.main_image_url.empty? %>
+          <figure>
+            <img src="<%= product.main_image_url %>" alt="" class="occasion-image img-responsive" />
+            <%# To get the image I created a method in product.rb in the model so we can use everywhere in products view, contorller and model  %>
+        <% else %>
+        <!-- <img class="img-responsive" src="http://www.fillmurray.com/300/200" alt="" /> -->
+          <%= image_tag( 'logo.png', :class => 'logo-img img-responsive') %>
+        <% end %>
+          </figure>
+          <div class="wrap-text">
+            <h3><%= product.name %></h3>
+          </div><!-- end text-container -->
+        </div><!-- end wrap-products -->
+      </a><!-- end link -->
       <% end %>
 
     </div><!-- end results-content -->
     <div class="col-md-4 results-sidebar">
       <h2>Side Bar area</h2>
       <%= render 'search_product_form' %>
+      <h3>Categories</h3>
       <% Category.all.each do |category| %>
         <div>
-          <h2><%= category.name.capitalize  %></h2>
+          <h4><%= category.name.capitalize  %></h4>
         </div>
       <% end %>
+
     </div><!-- end results-sidebar -->
   </div><!-- end row -->
 </div><!-- end container -->
