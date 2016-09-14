@@ -38,6 +38,8 @@
                 margin-left: 10px !important;
                 height: 30px !important;
                 border: 1px solid $secondary !important;
+                background-color: $secondary;
+                color: $white;
             }
             input[type="email"],
             input[type="password"],
