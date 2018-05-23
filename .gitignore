@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# I do not want to show my secrets
+/config/secrets.yml

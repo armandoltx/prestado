@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       flash[:message] = 'User Updated!'
 
     else
-      render:edit
+      render :edit
       flash[:message] = 'There was a problem with your changes'
     end
   end
